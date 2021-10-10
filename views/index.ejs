@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="/img/logo21SVG.svg" type="image/x-icon" />
+    <title>David21 || Official Website</title>
+  </head>
+  <body>
+    <section class="hero">
+      <header>
+        <a href="/" class="logo-container">
+          <img src="img/logo21.png" class="logo" alt="Logo" />
+        </a>
+        <nav>
+          <ul>
+            <li class="nav-item">
+              <a href="/#about" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/shop" class="nav-link">Shop</a>
+            </li>
+            <li class="nav-item">
+              <a href="/#contact" class="nav-link">Contact</a>
+            </li>
+          </ul>
+
+          <div class="menu-btn">
+            <div class="menu-btn__burger"></div>
+          </div>
+        </nav>
+
+        <div class="cart">
+          <button class="cart-btn">
+            <svg class="feather cart-icon">
+              <use xlink:href="./img/feather-sprite.svg#shopping-bag" />
+            </svg>
+
+            <span>0</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="slider">
+        <div class="arr" id="arr-left">
+          <svg class="feather slide-icon" id="arr-l">
+            <use xlink:href="./img/feather-sprite.svg#chevron-left" />
+          </svg>
+        </div>
+        <div class="slide-wrapper">
+          <%foundItems.forEach(song => { %>
+          <div class="slide">
+            <h1>New</h1>
+            <div class="slide-content">
+              <h2>
+                <%=song.name[0].toUpperCase() + song.name.slice(1)%> in the
+                store
+              </h2>
+              <p class="slide-description">
+                Catchy and chilly beat just for you.
+              </p>
+              <a class="btn-main btn-green" href="/shop">Listen now</a>
+            </div>
+          </div>
+          <%})%>
+        </div>
+        <div class="arr" id="arr-right">
+          <svg class="feather slide-icon" id="arr-r">
+            <use xlink:href="./img/feather-sprite.svg#chevron-right" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="dots-box">
+        <div class="dots"></div>
+      </div>
+    </section>
+
+    <main>
+      <section class="section section-beats" id="beats">
+        <div class="section-beats-content-wrapper">
+          <h2 class="beats-heading">
+            Beats <span class="section-heading-upper">Beats</span>
+          </h2>
+          <h3 class="beats-subheading">Some of my latest songs</h3>
+
+          <div class="songs-box-main">
+            <%foundItems.forEach(song => { %>
+            <div class="beat">
+              <div class="play-btn">
+                <svg class="feather play-icon">
+                  <use xlink:href="/img/feather-sprite.svg#play" />
+                </svg>
+              </div>
+
+              <div class="beat-info">
+                <h3 class="beat-name">
+                  <%=song.name[0].toUpperCase() + song.name.slice(1)%>
+                </h3>
+                <h4 class="beat-author"><%=song.author%></h4>
+                <h5 class="beat-coauthors"><%=song.coAuthors.join(',')%></h5>
+              </div>
+
+              <audio
+                src="/songs/<%=categ%>/<%=song._id%>"
+                class="audio"
+              ></audio>
+
+              <div class="time-wrapper">
+                <div class="time-change">
+                  <span class="mins">0</span>
+                  :
+                  <span class="secs">00</span>
+                </div>
+                <div class="progress-container">
+                  <div class="progress"></div>
+                </div>
+                <div class="time-whole">
+                  <span class="whole-mins">0</span>
+                  :
+                  <span class="whole-secs">00</span>
+                </div>
+              </div>
+
+              <div class="beat-btn-box">
+                <a href="shop/<%=song._id%>" class="beat-buy-btn btn-white"
+                  >Buy <%=song.price%> €</a
+                >
+              </div>
+            </div>
+            <%})%>
+          </div>
+          <a href="/shop" class="btn-green beat-section-btn">See all beats</a>
+        </div>
+      </section>
+
+      <section class="section section-about" id="about">
+        <div class="section-wrapper">
+          <div class="section-text-box">
+            <div class="section-text-wrapper">
+              <h2 class="section-heading">
+                About <span class="section-heading-upper">About</span>
+              </h2>
+              <p class="section-text">
+                I'm from Slovakia. I've been making music for 3 years now. I
+                started with beats but i do mixing and mastering too. Recently,
+                I started doing djing.
+              </p>
+
+              <div class="about-socials">
+                <a href="#" class="about-link">
+                  <svg class="feather about-icon">
+                    <use xlink:href="img/feather-sprite.svg#instagram" />
+                  </svg>
+                </a>
+                <a href="#" class="about-link">
+                  <svg class="feather about-icon">
+                    <use xlink:href="img/feather-sprite.svg#twitter" />
+                  </svg>
+                </a>
+                <a href="#" class="about-link">
+                  <svg class="feather about-icon">
+                    <use xlink:href="img/feather-sprite.svg#youtube" />
+                  </svg>
+                </a>
+
+                <a href="#" class="about-link">
+                  <svg class="feather about-icon">
+                    <use xlink:href="img/feather-sprite.svg#twitch" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-content-box">
+            <img src="img/aboutImg.jpg" class="ab-img" alt="" />
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-contact" id="contact">
+        <div class="section-wrapper">
+          <div class="section-content-box">
+            <form class="contact-form">
+              <input
+                type="email"
+                name="mail"
+                required
+                placeholder="E-mail"
+                class="contact-mail"
+              />
+
+              <textarea
+                name="message"
+                cols="30"
+                required
+                rows="10"
+                class="contact-message"
+                placeholder="Your message.."
+              ></textarea>
+
+              <button class="contact-btn btn-green" type="submit">Send</button>
+            </form>
+          </div>
+
+          <div class="section-text-box contact-text-box">
+            <div class="section-text-wrapper">
+              <h2 class="section-heading">
+                Contact
+                <span class="section-heading-upper">Contact</span>
+              </h2>
+              <p class="section-text">
+                If you want custom beat write wich type. If you need
+                <strong>help</strong> , follow the example in the link below.
+              </p>
+
+              <a class="contact-link">
+                Example message
+                <svg class="feather contact-icon">
+                  <use xlink:href="./img/feather-sprite.svg#chevron-right" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <%- include("./partials/footer") -%> <%- include("./partials/cart") -%> <%-
+    include("./partials/mobNav") -%>
+
+    <script src="./js/index.js"></script>
+    <script src="./js/slider.js"></script>
+  </body>
+</html>

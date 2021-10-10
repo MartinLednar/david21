@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="shortcut icon" href="/img/logo21SVG.svg" type="image/x-icon" />
+    <title>David21 || Official Shop</title>
+  </head>
+<body>
+    <div class="beats-container">
+      <header>
+        <a href="/" class="logo-container">
+          <img src="/img/logo21.png" class="logo" alt="Logo" />
+        </a>
+        <nav>
+          <ul>
+            <li class="nav-item">
+              <a href="/#about" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/shop" class="nav-link">Shop</a>
+            </li>
+            <li class="nav-item"><a href="/#contact" class="nav-link">Contact</a></li>
+          </ul>
+
+          <div class="menu-btn">
+            <div class="menu-btn__burger"></div>
+          </div>
+        </nav>
+
+        <div class="cart">
+          <button class="cart-btn">
+            <svg class="feather cart-icon">
+              <use xlink:href="/img/feather-sprite.svg#shopping-bag" />
+            </svg>
+
+            <span>0</span>
+          </button>
+        </div>
+      </header>
+
+      <section class="beats-whole-box">
+        <div class="beats-content-box">
+          <h1 class="beats-heading">
+            Shop <span class="section-heading-upper">Shop</span>
+          </h1>
+          <div class="buttons-search-box">
+            <%if(categ === 'public'){%>
+              <div class="buttons-box">
+                <a href="/shop"  class="beats-btn beats-btn-active">Public</a>
+                <a href="/shop/ordered" class="beats-btn">Ordered</a>
+              </div> 
+            <%}%>
+
+            <%if(categ === 'ordered'){%>
+              <div class="buttons-box">
+                <a href="/shop"  class="beats-btn ">Public</a>
+                <a href="/shop/ordered" class="beats-btn beats-btn-active">Ordered</a>
+              </div> 
+            <%}%>
+              
+            <div class="search-box">
+              <div class="beats-form-wrapper">
+                <%if(categ === 'public'){%>
+                  <form class="beats-form" method="GET"  action="/shop">
+                    <input
+                      type="text"
+                      placeholder="Search (in lowercase)"
+                      required
+                      name="search"
+                      id=""
+                      class="searchbox shop-search"
+                    />
+                    <button class="search-btn" type="submit">
+                      <svg class="feather search-icon">
+                        <use xlink:href="/img/feather-sprite.svg#search" />
+                      </svg>
+                    </button>
+                  </form> 
+                <%}%>
+              
+                <%if(categ === 'ordered'){%>
+                  <form class="beats-form" method="GET"  action="/shop/ordered">
+                    <input
+                      type="text"
+                      placeholder="Search (in lowercase)"
+                      required
+                      name="search"
+                      id=""
+                      class="searchbox shop-search"
+                    />
+                    <button class="search-btn" type="submit">
+                      <svg class="feather search-icon">
+                        <use xlink:href="/img/feather-sprite.svg#search" />
+                      </svg>
+                    </button>
+                  </form>
+                <%}%>
+                  
+               
+              </div>
+
+              <div class="beats-latest-wrapper">
+                <button class="latest-btn">
+                  <span class="latest">Latest</span>
+                  <span class="oldest btn-hidden">
+                    Oldest
+                  </span>
+                  <svg class="feather latest-icon">
+                    <use xlink:href="/img/feather-sprite.svg#chevron-down" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="songs-box"> 
+
+            <%if(categ === 'public'){%>
+              <%if(foundItems.length === 0){%>
+                <p class="not-found-message">No songs found !</p> 
+              <%}%>
+              <%foundItems.forEach(song => { %>
+                <div class="beat">
+                  <div class="play-btn">
+                    <svg class="feather play-icon">
+                      <use xlink:href="/img/feather-sprite.svg#play" />
+                    </svg>
+                  </div>
+    
+                  <div class="beat-info">
+                    <h3 class="beat-name"><%=song.name[0].toUpperCase() + song.name.slice(1)%></h3>
+                    <h4 class="beat-author"><%=song.author%></h4>
+                    <h5 class="beat-coauthors"><%=song.coAuthors.join(' ,')%></h5>
+                  </div>
+    
+                  <audio src="/songs/<%=categ%>/<%=song._id%>" class="audio"></audio>
+    
+                  <div class="time-wrapper">
+                    <div class="time-change">
+                      <span class="mins">0</span>
+                      :
+                      <span class="secs">00</span>
+                    </div>
+                    <div class="progress-container">
+                      <div class="progress"></div>
+                    </div>
+                    <div class="time-whole">
+                      <span class="whole-mins">0</span>
+                      :
+                      <span class="whole-secs">00</span>
+                    </div>
+                  </div>
+    
+                  <div class="beat-btn-box">
+                    <a href="shop/<%=song._id%>" class="beat-buy-btn btn-white">Buy <%=song.price%> €</a>
+                  </div>
+                </div>
+              <%})%>
+            <%}%>
+
+            <%if(categ === 'ordered'){%>
+              <%if(foundItems.length === 0){%>
+                <p class="not-found-message">No songs found !</p> 
+              <%}%>
+              <%foundItems.forEach(song => { %>
+                <div class="beat" data-id = "<%=song._id%>">
+                  <div class="play-btn">
+                    <svg class="feather play-icon">
+                      <use xlink:href="/img/feather-sprite.svg#play" />
+                    </svg>
+                  </div>
+    
+                  <div class="beat-info">
+                    <h3 class="beat-name"><%=song.name[0].toUpperCase() + song.name.slice(1)%></h3>
+                    <h4 class="beat-author"><%=song.author%></h4>
+                    <h5 class="beat-coauthors"><%=song.coAuthors.join(' ,')%></h5>
+                  </div>
+    
+                  <audio src="/songs/<%=categ%>/<%=song._id%>"  class="audio"></audio>
+    
+                  <div class="time-wrapper">
+                    <div class="time-change">
+                      <span class="mins">0</span>
+                      :
+                      <span class="secs">00</span>
+                    </div>
+                    <div class="progress-container">
+                      <div class="progress"></div>
+                    </div>
+                    <div class="time-whole">
+                      <span class="whole-mins">0</span>
+                      :
+                      <span class="whole-secs">00</span>
+                    </div>
+                  </div>
+    
+                  <div class="beat-btn-box">
+                    <a class="beat-buy-btn btn-white btn-ordered">Buy <%=song.price%> €</a>
+                  </div>
+                </div>
+              <%})%>
+
+              <div class="ordered-form-wrapper ordered-form-hidden">
+                
+                <form action="/shop/ordered" method="POST" class="ordered-form">
+                  <div class="ordered-x">
+                    <span>x</span>
+                  </div>
+                  <h2>Use password from mail to add to cart</h2>
+                  <input id="idInput" type="hidden" name="clickedSong">
+                  <input type="text" class="section-input" name="formPassword">
+                  <button type="submit" class="btn-green">Submit</button>
+                </form>
+              </div>
+
+              
+            <%}%>
+
+            
+            </div>
+
+            
+      </section>
+    </div>
+  <%- include("./partials/footer") -%>
+
+  <%- include("./partials/cart") -%>
+
+  <%- include("./partials/mobNav") -%>
+
+  <%if(categ === 'ordered'){%>
+    <script src="/js/orderedForm.js"></script>
+  <%}%>
+
+  
+  <script src="/js/index.js"></script>
+  <script src="/js/shopLatest.js"></script>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="/img/logo21SVG.svg" type="image/x-icon" />
+    <title>David21 || Song Adding</title>
+  </head>
+
+  <body>
+    <div class="add-wrapper">
+      <div class="add-content-wrapper">
+        <h1 class="beats-heading beats-add">
+          Beat Adding <span class="section-heading-upper">Beat Adding</span>
+        </h1>
+
+        <form
+          action="/add"
+          method="post"
+          class="add-form"
+          enctype="multipart/form-data"
+        >
+          <label class="add-label-check">
+            <input class="add-check" type="checkbox" />
+            Custom Beat
+          </label>
+
+          <div class="custom-inputs-box unchecked">
+            <input
+              type="email"
+              class="add-input add-mail"
+              name="email"
+              placeholder="Customer's email"
+            />
+            <div class="custom-password-box">
+              <input
+                type="text"
+                class="add-input add-password"
+                name="password"
+                placeholder="Custom password"
+              />
+              <button type="button" class="btn-green btn-custom">
+                Generate
+              </button>
+            </div>
+          </div>
+          <input
+            type="text"
+            required
+            placeholder="Beat name"
+            class="add-input"
+            name="name"
+          />
+          <input
+            type="text"
+            placeholder="Beat co-authors"
+            class="add-input"
+            name="coAuthors"
+            id=""
+          />
+          <input
+            type="text"
+            required
+            placeholder="Beat price (5.00$)"
+            class="add-input"
+            name="price"
+            id=""
+          />
+
+          <input type="file" required class="add-file" name="file" />
+
+          <button class="btn-green add-submit" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="./js/add.js"></script>
+  </body>
+</html>

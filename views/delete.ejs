@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="shortcut icon" href="/img/logo21SVG.svg" type="image/x-icon" />
+    <title>David21 || Song Deleting</title>
+  </head>
+  <body>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/css/style.css" />
+        <link
+          rel="shortcut icon"
+          href="/img/logo21SVG.svg"
+          type="image/x-icon"
+        />
+        <title>Deleting songs</title>
+      </head>
+      <body id="delete">
+        <div class="delete-container">
+          <h1 class="beats-heading delete-heading">
+            Beat Deleting
+            <span class="section-heading-upper">Beat Deleting</span>
+          </h1>
+          <div class="delete-inner-container">
+            <%if(categ === 'public'){%>
+            <div class="buttons-box">
+              <a href="/delete" class="beats-btn beats-btn-active">Public</a>
+              <a href="/delete/ordered" class="beats-btn">Ordered</a>
+            </div>
+            <%}%> <%if(categ === 'ordered'){%>
+            <div class="buttons-box">
+              <a href="/delete" class="beats-btn">Public</a>
+              <a href="/delete/ordered" class="beats-btn beats-btn-active"
+                >Ordered</a
+              >
+            </div>
+            <%}%> <%if(categ === 'public'){%>
+            <form class="beats-form" method="GET" action="/delete">
+              <input
+                type="text"
+                placeholder="Search (in lowercase)"
+                required
+                name="search"
+                id=""
+                class="searchbox"
+              />
+              <button class="search-btn" type="submit">
+                <svg class="feather search-icon">
+                  <use xlink:href="/img/feather-sprite.svg#search" />
+                </svg>
+              </button>
+            </form>
+            <%}%> <%if(categ === 'ordered'){%>
+            <form class="beats-form" method="GET" action="/delete/ordered">
+              <input
+                type="text"
+                placeholder="Search (in lowercase)"
+                required
+                name="search"
+                id=""
+                class="searchbox"
+              />
+              <button class="search-btn" type="submit">
+                <svg class="feather search-icon">
+                  <use xlink:href="/img/feather-sprite.svg#search" />
+                </svg>
+              </button>
+            </form>
+        
+                
+            
+            <%}%>
+            <div class="songs-box">
+             <%if(categ === 'public'){%> <%if(foundItems.length === 0){%>
+            <p class="not-found-message">No songs found !</p>
+            <%}%> <%foundItems.forEach(song => { %>
+            <div class="beat">
+              <div class="play-btn">
+                <svg class="feather play-icon">
+                  <use xlink:href="/img/feather-sprite.svg#play" />
+                </svg>
+              </div>
+
+              <div class="beat-info">
+                <h3 class="beat-name">
+                  <%=song.name[0].toUpperCase() + song.name.slice(1)%>
+                </h3>
+                <h4 class="beat-author"><%=song.author%></h4>
+                <h5 class="beat-coauthors"><%=song.coAuthors.join(',')%></h5>
+              </div>
+
+              <audio
+                src="/songs/<%=categ%>/<%=song._id%>"
+                class="audio"
+              ></audio>
+
+              <div class="time-wrapper">
+                <div class="time-change">
+                  <span class="mins">0</span>
+                  :
+                  <span class="secs">00</span>
+                </div>
+                <div class="progress-container">
+                  <div class="progress"></div>
+                </div>
+                <div class="time-whole">
+                  <span class="whole-mins">0</span>
+                  :
+                  <span class="whole-secs">00</span>
+                </div>
+              </div>
+
+              <div class="beat-btn-box">
+                <a  class="beat-buy-btn btn-white"
+                  >For <%=song.price%> €</a
+                >
+              </div>
+
+              <a href="/delete/<%=categ%>/<%=song._id%>" class="delete-beat-btn">x</a>
+            </div>
+            <%})%>
+             <%}%> 
+             <%if(categ === 'ordered'){%> <%if(foundItems.length ===
+            0){%>
+            <p class="not-found-message">No songs found !</p>
+            <%}%> <%foundItems.forEach(song => { %>
+            <div class="beat" data-id="<%=song._id%>">
+              <div class="play-btn">
+                <svg class="feather play-icon">
+                  <use xlink:href="/img/feather-sprite.svg#play" />
+                </svg>
+              </div>
+
+              <div class="beat-info">
+                <h3 class="beat-name">
+                  <%=song.name[0].toUpperCase() + song.name.slice(1)%>
+                </h3>
+                <h4 class="beat-author"><%=song.author%></h4>
+                <h5 class="beat-coauthors"><%=song.coAuthors.join(',')%></h5>
+              </div>
+
+              <audio
+                src="/songs/<%=categ%>/<%=song._id%>"
+                class="audio"
+              ></audio>
+
+              <div class="time-wrapper">
+                <div class="time-change">
+                  <span class="mins">0</span>
+                  :
+                  <span class="secs">00</span>
+                </div>
+                <div class="progress-container">
+                  <div class="progress"></div>
+                </div>
+                <div class="time-whole">
+                  <span class="whole-mins">0</span>
+                  :
+                  <span class="whole-secs">00</span>
+                </div>
+              </div>
+
+              <div class="beat-btn-box">
+                <a class="beat-buy-btn btn-white btn-ordered"
+                  >Buy <%=song.price%> €</a
+                >
+              </div>
+              <a href="/delete/ordered/<%=categ%>/<%=song._id%>" class="delete-beat-btn">x</a>
+
+            </div>
+            <%})%> 
+            <%}%>
+        </div>
+          </div>
+             </div>
+            </div>
+
+        <script src="/js/delete.js"></script>
+      </body>
+    </html>
+  </body>
+</html>
