@@ -14,7 +14,7 @@
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "express-fileupload": "^1.2.1",
-    "mongoose": "^5.13.8",
+    "mongoose": "^6.0.10",
     "multer": "^1.4.3",
     "node-gyp": "^8.2.0"
   }

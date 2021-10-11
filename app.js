@@ -7,6 +7,7 @@ const mainRouter = require('./routes/mainRoutes');
 const shopRouter = require('./routes/shopRoutes');
 const loginRouter = require('./routes/loginRoutes');
 const sendSongRouter = require('./routes/sendSongRoutes');
+const notFoundRouter = require('./routes/notFoundRoutes');
 
 const app = express();
 
@@ -22,5 +23,6 @@ app.use('/add', addSongRouter);
 app.use('/delete', deleteSongRouter);
 app.use('/shop', shopRouter);
 app.use('/songs', sendSongRouter);
+app.use('*', notFoundRouter);
 
 module.exports = app;
