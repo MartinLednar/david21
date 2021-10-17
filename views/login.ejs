@@ -18,16 +18,16 @@
           <span class="section-heading-upper">Welcome back!</span>
         </h1>
 
-        <form method="POST" class="login-form" action="/">
+        <form method="POST" class="login-form" action="/login">
           <input
-            class="section-input"
+            class="section-input <%=errMail%>"
             type="email"
-            name="mail"
+            name="email"
             placeholder="E-mail"
             required
           />
           <input
-            class="section-input"
+            class="section-input <%=errPassword%>"
             type="password"
             name="password"
             placeholder="Password"
@@ -35,8 +35,6 @@
           />
           <button class="btn-green" type="submit">Sign In</button>
         </form>
-
-        <a class="login-link" href="./add.html">Forgot password?</a>
       </div>
     </div>
   </body>

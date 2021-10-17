@@ -20,6 +20,7 @@ exports.addSong = async (req, res) => {
       mimetype: req.file.mimetype,
       filename: req.file.originalname,
     };
+
     //Setting text//
     req.body.name = req.body.name.toLowerCase();
     if (req.body.coAuthors !== '') {
@@ -35,13 +36,13 @@ exports.addSong = async (req, res) => {
 
     if (req.body?.email && req.body?.password) {
       //Encrypting password//
-      bcrypt.genSalt(saltRounds, function (err, salt) {
+      bcrypt.genSalt(saltRounds, async function (err, salt) {
         if (!err) {
-          bcrypt.hash(req.body.password, salt, function (err, hash) {
+          bcrypt.hash(req.body.password, salt, async function (err, hash) {
             if (!err) {
               req.body.password = hash;
 
-              const newSong = customSong.create(req.body);
+              const newSong = await customSong.create(req.body);
             }
           });
         }
@@ -50,7 +51,7 @@ exports.addSong = async (req, res) => {
 
       res.status(200).render('add');
     } else {
-      const newSong = publicSong.create(req.body);
+      publicSong.create(req.body);
       res.status(200).render('add');
     }
   } catch (err) {

@@ -1,0 +1,17 @@
+const mongoose = require('mongoose');
+
+//password : Beats153246
+//mail: highdavidbeatz@gmail.com
+
+const adminSchema = new mongoose.Schema({
+  email: {
+    type: String,
+  },
+  password: {
+    type: String,
+  },
+});
+
+const admin = mongoose.model('admin', adminSchema);
+
+module.exports = admin;
