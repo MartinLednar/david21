@@ -167,7 +167,8 @@ const revealSection = function (entries, observer) {
 
 const sectionObserver = new IntersectionObserver(revealSection, {
   root: null,
-  threshold: [0.3, 0.5, 0.65, 0.85],
+  rootMargin: '0px',
+  threshold: [0.3, 0.4, 0.5, 0.65, 0.85, 0.95, 1],
 });
 
 allSections.forEach(section => {

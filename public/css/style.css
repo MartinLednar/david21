@@ -462,6 +462,27 @@ main {
 }
 /*/ ///////////////////////Section/////////////////*/
 
+/*/ ///////////////////////Section go back btn/////////////////*/
+.btn-back {
+  color: var(--white);
+  display: inline-block;
+  align-self: flex-start;
+  margin: 2.5rem 0 0 2.5rem;
+  text-decoration: none;
+  transition: all 0.5s;
+}
+
+.back-icon {
+  stroke-width: 1px;
+  height: 4rem;
+  width: 4rem;
+}
+
+.btn-back:hover {
+  color: var(--green);
+}
+/*/ ///////////////////////Section go back btn/////////////////*/
+
 /*/ ///////////////////////Beats section/////////////////*/
 
 .section-beats {
@@ -1235,6 +1256,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 }
 
 .delete-inner-container {
@@ -1594,9 +1616,6 @@ main {
 /*//////////////// Beat Password form //////////////*/
 
 /*//////////////// Admin menu //////////////*/
-#admin-delete {
-  margin-top: 2rem;
-}
 .menu-wrapper {
   height: 100vh;
   min-height: 600px;
@@ -1610,8 +1629,8 @@ main {
   text-decoration: none;
 }
 
-.admin-heading:hover .section-heading-upper {
-  left: 1.5%;
+.admin-heading:not(:first-child) {
+  margin-top: 1.5rem;
 }
 
 .admin-heading.beats-heading {
@@ -1619,7 +1638,11 @@ main {
 }
 .admin-heading .section-heading-upper {
   left: 1%;
-  transition: all 0.5s;
+  transition: all 0.3s;
+}
+
+.admin-heading:hover .section-heading-upper {
+  left: 1.5%;
 }
 /*//////////////// Admin menu //////////////*/
 
