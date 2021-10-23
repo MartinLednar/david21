@@ -457,9 +457,12 @@ main {
   transform: translateY(50px);
 }
 
-.section-input-wrong {
-  border-color: red;
+.login-error-message {
+  color: red;
+  font-size: 2rem;
+  margin: 4rem 0;
 }
+
 /*/ ///////////////////////Section/////////////////*/
 
 /*/ ///////////////////////Section go back btn/////////////////*/
@@ -1093,7 +1096,7 @@ main {
 }
 
 .logo-login {
-  height: 50px;
+  height: 5rem;
   width: auto;
   position: absolute;
   top: 40px;
@@ -1129,6 +1132,10 @@ main {
   font-size: 2rem;
   cursor: pointer;
   margin-bottom: 4rem;
+}
+
+.login-wrapper .login-error-message + .login-form {
+  margin-top: 0;
 }
 
 /*////////////Login//////////*/

@@ -18,16 +18,20 @@
           <span class="section-heading-upper">Welcome back!</span>
         </h1>
 
+        <%if(errMessage){%>
+        <p class="login-error-message">Incorrect password or email !</p>
+        <%}%>
+
         <form method="POST" class="login-form" action="/login">
           <input
-            class="section-input <%=errMail%>"
+            class="section-input"
             type="email"
             name="email"
             placeholder="E-mail"
             required
           />
           <input
-            class="section-input <%=errPassword%>"
+            class="section-input"
             type="password"
             name="password"
             placeholder="Password"
