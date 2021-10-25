@@ -51,7 +51,7 @@ exports.addSong = async (req, res) => {
 
       res.status(200).render('add');
     } else {
-      publicSong.create(req.body);
+      const newPublicSong = await publicSong.create(req.body);
       res.status(200).render('add');
     }
   } catch (err) {
