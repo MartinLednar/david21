@@ -1,7 +1,13 @@
 const bcrypt = require('bcrypt');
-const saltRounds = Number(process.env.SALT_ROUNDS);
+const jwt = require('jsonwebtoken');
 
 const Admin = require('../models/adminModel');
+
+const signToken = id => {
+  return jwt.sign({ id: id }, process.env.JWT_SECRET, {
+    expiresIn: process.env.JWT_EXPIRES_IN,
+  });
+};
 
 exports.renderSite = async (req, res) => {
   try {
@@ -43,9 +49,14 @@ exports.renderAdminMenu = async (req, res) => {
           admin[0].password,
           (err, result) => {
             if (result) {
-              res.redirect('/login/admin');
+              const token = signToken(admin[0]._id);
+
+              res.cookie('jwt', token, {
+                httpOnly: true,
+              });
+
+              res.render('adminMenu');
             } else {
-              console.log(err);
               res.render('login', {
                 errMessage: true,
               });

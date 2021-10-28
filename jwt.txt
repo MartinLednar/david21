@@ -1,9 +1,11 @@
 //.env variables
 JWT_SECRET=this-is-my-super-secret-string-for-jwt
 JWT_EXPIRES_IN=90d
+//HOTOVO
 
 //install 
 jsonwebtoken
+//HOTOVO
 
 //vypytat na zaciatku
 const { promisify } = require('util');
@@ -14,9 +16,11 @@ const signToken = (id) => {
     expiresIn: process.env.JWT_EXPIRES_IN,
   });
 };
+//HOTOVO
 
 //potom na vytvorenie
 const token = signToken(newUser._id);
+//HOTOVO
 
 //na overenie
 const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);

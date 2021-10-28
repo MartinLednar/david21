@@ -1,12 +1,13 @@
 const express = require('express');
+const isLogged = require('../utils/isLogged');
 const loginController = require('../controllers/loginController');
 
 const router = express.Router();
 
 router
   .route('/')
-  .get(loginController.renderSite)
+  .get(isLogged.loginJWT, loginController.renderSite)
   .post(loginController.renderAdminMenu);
 
-router.route('/admin').get(loginController.renderMenu);
+router.route('/admin').get(isLogged.menuJWT, loginController.renderMenu);
 module.exports = router;
