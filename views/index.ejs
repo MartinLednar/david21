@@ -38,7 +38,7 @@
               <use xlink:href="./img/feather-sprite.svg#shopping-bag" />
             </svg>
 
-            <span>0</span>
+            <span><%=cartItems.length%></span>
           </button>
         </div>
       </header>
@@ -125,9 +125,7 @@
               </div>
 
               <div class="beat-btn-box">
-                <a
-                  href="add-to-cart/p<%=song._id%>"
-                  class="beat-buy-btn btn-white"
+                <a href="/cart/<%=song._id%>" class="beat-buy-btn btn-white"
                   >Buy <%=song.price%> €</a
                 >
               </div>

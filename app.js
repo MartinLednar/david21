@@ -41,7 +41,7 @@ app.use(express.static(__dirname + '/public'));
 app.use('/', mainRouter);
 app.use('/login', loginRouter);
 app.use('/add', addSongRouter);
-app.use('/add-to-cart', addToCartRouter);
+app.use('/cart', addToCartRouter);
 app.use('/delete', deleteSongRouter);
 app.use('/shop', shopRouter);
 app.use('/songs', sendSongRouter);
