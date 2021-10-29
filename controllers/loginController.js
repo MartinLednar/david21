@@ -30,16 +30,17 @@ exports.renderMenu = async (req, res) => {
 exports.renderAdminMenu = async (req, res) => {
   try {
     //Encrypting password and creating admin//
-    // bcrypt.genSalt(saltRounds, async function (err, salt) {
+    // bcrypt.genSalt(process.env.SALT_ROUNDS * 1, async function (err, salt) {
     //   if (!err) {
     //     bcrypt.hash(req.body.password, salt, async function (err, hash) {
     //       if (!err) {
     //         req.body.password = hash;
-    //         const newAdmin = await Admin.create(req.body);
+    //         await Admin.create(req.body);
     //       }
     //     });
     //   }
     // });
+    // res.render('login', { errMessage: false });
     //Encrypting password and creating admin//
     //Checking for right email and password//
     Admin.find({}, async (err, admin) => {
@@ -50,11 +51,9 @@ exports.renderAdminMenu = async (req, res) => {
           (err, result) => {
             if (result) {
               const token = signToken(admin[0]._id);
-
               res.cookie('jwt', token, {
                 httpOnly: true,
               });
-
               res.render('adminMenu');
             } else {
               res.render('login', {

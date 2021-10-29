@@ -5,7 +5,7 @@ dotenv.config({ path: './.env' });
 const app = require('./app');
 
 mongoose
-  .connect(process.env.DATABASE, {
+  .connect(process.env.DATABASE_LOCAL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })

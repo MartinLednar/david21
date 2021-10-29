@@ -1383,10 +1383,10 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-bottom: 2rem;
 }
 
 .cart-side-btn {
-  margin-bottom: 5rem;
   text-decoration: none;
   color: var(--green);
   font-weight: 500;

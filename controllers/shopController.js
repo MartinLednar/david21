@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const customBeat = require('../models/customBeatModel');
-const publicBeat = require('../models/publicBeatModel');
+const PublicSong = require('../models/publicBeatModel');
 
 exports.renderShop = async (req, res) => {
   try {
     if (req.query?.search) {
-      publicBeat.find({}, '-song', (err, songs) => {
+      PublicSong.find({}, '-song', (err, songs) => {
         const searched = songs.filter(song =>
           song.name.includes(req.query.search.trim())
         );
@@ -14,7 +14,7 @@ exports.renderShop = async (req, res) => {
         res.render('shop', { foundItems: searched.reverse(), categ: 'public' });
       });
     } else {
-      publicBeat.find({}, '-song', (err, songs) => {
+      PublicSong.find({}, '-song', (err, songs) => {
         res.render('shop', { foundItems: songs.reverse(), categ: 'public' });
       });
     }

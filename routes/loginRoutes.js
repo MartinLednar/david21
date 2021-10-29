@@ -9,5 +9,4 @@ router
   .get(isLogged.loginJWT, loginController.renderSite)
   .post(loginController.renderAdminMenu);
 
-router.route('/admin').get(isLogged.menuJWT, loginController.renderMenu);
 module.exports = router;

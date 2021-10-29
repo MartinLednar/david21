@@ -10,8 +10,4 @@ router
   .get(shopController.renderShopCustom)
   .post(shopController.orderedToCart);
 
-// router.route('/:songId').get(shopController.renderShop);
-
-// router.route('/ordered/:songId').get(shopController.renderShopCustom);
-
 module.exports = router;

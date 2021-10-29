@@ -155,7 +155,7 @@
                   </div>
     
                   <div class="beat-btn-box">
-                    <a href="shop/<%=song._id%>" class="beat-buy-btn btn-white">Buy <%=song.price%> €</a>
+                    <a href="add-to-cart/p<%=song._id%>" class="beat-buy-btn btn-white">Buy <%=song.price%> €</a>
                   </div>
                 </div>
               <%})%>
@@ -166,7 +166,7 @@
                 <p class="not-found-message">No songs found !</p> 
               <%}%>
               <%foundItems.forEach(song => { %>
-                <div class="beat" data-id = "<%=song._id%>">
+                <div class="beat" data-id = "o<%=song._id%>">
                   <div class="play-btn">
                     <svg class="feather play-icon">
                       <use xlink:href="/img/feather-sprite.svg#play" />
@@ -205,7 +205,7 @@
 
               <div class="ordered-form-wrapper ordered-form-hidden">
                 
-                <form action="/shop/ordered" method="POST" class="ordered-form">
+                <form action="/add-to-cart/ordered" method="POST" class="ordered-form">
                   <div class="ordered-x">
                     <span>x</span>
                   </div>

@@ -14,7 +14,6 @@ exports.renderSite = async (req, res) => {
 
 exports.addSong = async (req, res) => {
   try {
-    console.log(req.body);
     req.body.song = {
       file: req.file.buffer,
       mimetype: req.file.mimetype,
@@ -42,16 +41,15 @@ exports.addSong = async (req, res) => {
             if (!err) {
               req.body.password = hash;
 
-              const newSong = await customSong.create(req.body);
+              await customSong.create(req.body);
             }
           });
         }
       });
       //Encrypting password//
-
       res.status(200).render('add');
     } else {
-      const newPublicSong = await publicSong.create(req.body);
+      await publicSong.create(req.body);
       res.status(200).render('add');
     }
   } catch (err) {
