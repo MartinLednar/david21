@@ -36,7 +36,7 @@
               <use xlink:href="/img/feather-sprite.svg#shopping-bag" />
             </svg>
 
-            <span>0</span>
+            <span><%=cartItems.length%></span>
           </button>
         </div>
       </header>
@@ -155,7 +155,11 @@
                   </div>
     
                   <div class="beat-btn-box">
+<<<<<<< HEAD
                     <a href="add-to-cart/<%=song._id%>" class="beat-buy-btn btn-white">Buy <%=song.price%> €</a>
+=======
+                    <a href="/cart/<%=song._id%>" class="beat-buy-btn btn-white">Buy <%=song.price%> €</a>
+>>>>>>> db2c583c27118dc45d1080bcd0ccc5f155cd8bda
                   </div>
                 </div>
               <%})%>
@@ -205,7 +209,7 @@
 
               <div class="ordered-form-wrapper ordered-form-hidden">
                 
-                <form action="/add-to-cart/ordered" method="POST" class="ordered-form">
+                <form action="/cart/ordered" method="POST" class="ordered-form">
                   <div class="ordered-x">
                     <span>x</span>
                   </div>

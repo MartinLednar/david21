@@ -5,9 +5,6 @@ const router = express.Router();
 
 router.route('/').get(shopController.renderShop);
 
-router
-  .route('/ordered')
-  .get(shopController.renderShopCustom)
-  .post(shopController.orderedToCart);
+router.route('/ordered').get(shopController.renderShopCustom);
 
 module.exports = router;
