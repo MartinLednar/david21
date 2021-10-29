@@ -8,11 +8,11 @@
   <div class="cart-items-box">
     <%cartItems.forEach(item => {%>
     <div class="item">
-      <button class="item-x">
+      <a href="/cart/delete/<%=item._id%>" class="item-x">
         <svg class="feather x-icon">
           <use xlink:href="/img/feather-sprite.svg#x" />
         </svg>
-      </button>
+      </a>
 
       <div class="item-content">
         <div class="item-text">
