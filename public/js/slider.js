@@ -1,9 +1,9 @@
 const slider = function () {
-  const sliderBox = document.querySelector(".slider");
-  const slides = document.querySelectorAll(".slide");
-  const btnLeft = document.querySelector("#arr-l");
-  const btnRight = document.querySelector("#arr-r");
-  const dotContainer = document.querySelector(".dots");
+  const sliderBox = document.querySelector('.slider');
+  const slides = document.querySelectorAll('.slide');
+  const btnLeft = document.querySelector('#arr-l');
+  const btnRight = document.querySelector('#arr-r');
+  const dotContainer = document.querySelector('.dots');
 
   let currSlide = 0;
   const maxSlide = slides.length;
@@ -13,7 +13,7 @@ const slider = function () {
   const createDots = function () {
     slides.forEach((_, i) => {
       dotContainer.insertAdjacentHTML(
-        "beforeend",
+        'beforeend',
         `<div class="dot" data-slide="${i}"></div>`
       );
     });
@@ -21,21 +21,21 @@ const slider = function () {
 
   const activateDot = function (slide) {
     document
-      .querySelectorAll(".dot")
-      .forEach((dot) => dot.classList.remove("dot-active"));
+      .querySelectorAll('.dot')
+      .forEach(dot => dot.classList.remove('dot-active'));
 
     document
       .querySelector(`.dot[data-slide="${slide}"]`)
-      .classList.add("dot-active");
+      .classList.add('dot-active');
   };
 
   const goToSlide = function (slide) {
     slides.forEach((s, i) => {
-      s.classList.remove("active-slide");
+      s.classList.remove('active-slide');
       s.style.transform = `translateX(${100 * (i - slide)}%)`;
     });
 
-    slides[slide].classList.add("active-slide");
+    slides[slide].classList.add('active-slide');
   };
 
   //Next slide
@@ -69,21 +69,21 @@ const slider = function () {
   };
   init();
   //event handlers
-  btnRight.addEventListener("click", nextSlide);
+  btnRight.addEventListener('click', nextSlide);
 
-  btnLeft.addEventListener("click", prevSlide);
+  btnLeft.addEventListener('click', prevSlide);
 
-  document.addEventListener("keydown", function (e) {
+  document.addEventListener('keydown', function (e) {
     console.log(e);
 
-    if (e.key === "ArrowLeft") {
+    if (e.key === 'ArrowLeft') {
       prevSlide();
     }
-    e.key === "ArrowRight" && nextSlide();
+    e.key === 'ArrowRight' && nextSlide();
   });
 
-  dotContainer.addEventListener("click", function (e) {
-    if (e.target.classList.contains("dot")) {
+  dotContainer.addEventListener('click', function (e) {
+    if (e.target.classList.contains('dot')) {
       const { slide } = e.target.dataset;
       goToSlide(slide);
       activateDot(slide);
@@ -92,13 +92,32 @@ const slider = function () {
 
   let interval = setInterval(nextSlide, 6000);
 
-  sliderBox.addEventListener("mouseover", function () {
+  sliderBox.addEventListener('mouseover', function () {
     clearInterval(interval);
   });
 
-  sliderBox.addEventListener("mouseout", function () {
+  sliderBox.addEventListener('mouseout', function () {
     interval = setInterval(nextSlide, 6000);
   });
 };
 
 slider();
+
+const exampleBtn = document.querySelector('.contact-link');
+const exampleOverlay = document.querySelector('.example-overlay');
+const closeExampleBtn = document.querySelector('.close-overlay');
+
+exampleBtn.addEventListener('click', function () {
+  exampleOverlay.classList.remove('hidden-overlay');
+  exampleOverlay.closest('body').style.overflow = 'hidden';
+});
+
+exampleOverlay.addEventListener('click', function () {
+  exampleOverlay.classList.add('hidden-overlay');
+  exampleOverlay.closest('body').style.overflow = 'visible';
+});
+
+closeExampleBtn.addEventListener('click', function () {
+  exampleOverlay.classList.add('hidden-overlay');
+  exampleOverlay.closest('body').style.overflow = 'visible';
+});

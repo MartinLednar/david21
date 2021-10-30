@@ -584,6 +584,7 @@ main {
 
 /*/ ///////////////////////Contact section/////////////////*/
 .section-contact {
+  position: relative;
   height: 80vh;
   min-height: 800px;
 }
@@ -607,6 +608,44 @@ main {
 
 .contact-link:hover .contact-icon {
   padding-left: 8px;
+}
+
+.example-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #121212c4;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s;
+}
+
+.hidden-overlay {
+  display: none;
+}
+
+.example-img {
+  width: 35%;
+  height: auto;
+}
+
+.close-overlay {
+  position: absolute;
+  right: 50px;
+  top: 20px;
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 200;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.close-overlay:hover {
+  color: red;
 }
 
 .contact-form {
@@ -1064,7 +1103,7 @@ main {
 }
 
 .songs-box {
-  height: 560px;
+  height: 300px;
   width: 100%;
   padding-top: 5rem;
   overflow-x: hidden;

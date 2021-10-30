@@ -14,7 +14,7 @@ const publicBeatsSchema = new mongoose.Schema({
   },
   coAuthors: {
     type: [String],
-    default: '',
+    // default: '',
   },
   price: {
     type: Number,
@@ -25,6 +25,26 @@ const publicBeatsSchema = new mongoose.Schema({
     mimetype: { type: String, required: true },
     filename: { type: String, required: true },
   },
+});
+
+publicBeatsSchema.pre('save', function (next) {
+  //Setting Name and Co-authors
+  this.name = this.name.toLowerCase();
+  console.log(this.coAuthors);
+  if (this.coAuthors[0] !== '') {
+    const coAuthors = this.coAuthors[0].split(',');
+
+    const coAuthorsCapitalized = coAuthors.map(auth => {
+      auth = auth.trim();
+      return auth[0].toUpperCase() + auth.slice(1);
+    });
+    this.coAuthors = coAuthorsCapitalized;
+  } else {
+    this.coAuthors = undefined;
+  }
+  //Setting Name and Co-authors
+
+  next();
 });
 
 const publicSong = mongoose.model('publicSong', publicBeatsSchema);

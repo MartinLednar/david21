@@ -26,7 +26,7 @@ app.use(
     saveUninitialized: true,
     store: MongoStore.create({
       mongoUrl: process.env.DATABASE_LOCAL,
-      ttl: 1 * 24 * 60 * 60, // = 1 day expiration
+      ttl: 0.2 * 24 * 60 * 60, // =  expiration
       autoRemove: 'interval',
       autoRemoveInterval: 15,
       crypto: {

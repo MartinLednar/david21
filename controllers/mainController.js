@@ -3,7 +3,6 @@ const PublicSong = require('../models/publicBeatModel');
 
 exports.renderSite = async (req, res) => {
   try {
-    console.log(req.path);
     if (!req.session.cart) {
       req.session.cart = [];
     }

@@ -4,6 +4,9 @@ const PublicSong = require('../models/publicBeatModel');
 
 exports.renderShop = async (req, res) => {
   try {
+    if (!req.session.cart) {
+      req.session.cart = [];
+    }
     if (req.query?.search) {
       PublicSong.find({}, '-song', (err, songs) => {
         const searched = songs.filter(song =>
@@ -32,6 +35,9 @@ exports.renderShop = async (req, res) => {
 
 exports.renderShopCustom = async (req, res) => {
   try {
+    if (!req.session.cart) {
+      req.session.cart = [];
+    }
     if (req.query?.search) {
       CustomBeat.find({}, '-song -password', (err, songs) => {
         console.log(songs);

@@ -20,33 +20,20 @@ exports.addSong = async (req, res) => {
       filename: req.file.originalname,
     };
 
-    //Setting text//
-    req.body.name = req.body.name.toLowerCase();
-    if (req.body.coAuthors !== '') {
-      const coAuthors = req.body.coAuthors.split(',');
-
-      const coAuthorsCapitalized = coAuthors.map(auth => {
-        auth = auth.trim();
-        return auth[0].toUpperCase() + auth.slice(1);
-      });
-      req.body.coAuthors = coAuthorsCapitalized;
-    }
-    //Setting text//
-
     if (req.body?.email && req.body?.password) {
-      //Encrypting password//
+      // //Encrypting password//
       bcrypt.genSalt(saltRounds, async function (err, salt) {
         if (!err) {
           bcrypt.hash(req.body.password, salt, async function (err, hash) {
             if (!err) {
               req.body.password = hash;
-
               await customSong.create(req.body);
             }
           });
         }
       });
-      //Encrypting password//
+      // //Encrypting password//
+
       res.status(200).render('add');
     } else {
       await publicSong.create(req.body);
