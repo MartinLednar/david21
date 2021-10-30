@@ -1340,12 +1340,14 @@ main {
 }
 
 .not-found-text {
+  font-size: 2.3rem;
   margin: 2rem 0 3rem;
+  color: var(--white);
 }
 
 .not-found-btn {
   padding: 1rem 1.5rem;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   width: max-content;
 }
 /*////////////Not found page//////////*/
@@ -1353,7 +1355,8 @@ main {
 /*////////////Cart//////////*/
 .cart-content {
   height: 100vh;
-  width: 35%;
+  min-height: 600px;
+  width: 30%;
   min-width: max-content;
   position: fixed;
   right: 0;
@@ -1441,6 +1444,7 @@ main {
   width: 100%;
   height: auto;
   text-align: center;
+  padding-bottom: 1.5rem;
 }
 
 .cart-title {

@@ -20,7 +20,6 @@ exports.publicToCart = async (req, res) => {
       if (!itemExists) {
         res.redirect('/');
       } else {
-        console.log('sme tam');
         PublicSong.findById(id, '-song', function (err, song) {
           req.session.cart.push(song);
           res.redirect('/');
