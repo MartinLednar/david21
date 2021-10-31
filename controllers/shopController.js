@@ -10,7 +10,7 @@ exports.renderShop = async (req, res) => {
     if (req.query?.search) {
       PublicSong.find({}, '-song', (err, songs) => {
         const searched = songs.filter(song =>
-          song.name.includes(req.query.search.trim())
+          song.name.includes(req.query.search.trim().toLowerCase())
         );
 
         res.render('shop', {
@@ -42,7 +42,7 @@ exports.renderShopCustom = async (req, res) => {
       CustomBeat.find({}, '-song -password', (err, songs) => {
         console.log(songs);
         const searched = songs.filter(song =>
-          song.name.includes(req.query.search.trim())
+          song.name.includes(req.query.search.trim().toLowerCase())
         );
 
         res.render('shop', {

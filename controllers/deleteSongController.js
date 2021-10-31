@@ -11,7 +11,7 @@ exports.renderDeletePublic = async (req, res) => {
     } else if (req.query?.search && !req.params?.categ) {
       publicBeat.find({}, '-song', (err, songs) => {
         const searched = songs.filter(song =>
-          song.name.includes(req.query.search.trim())
+          song.name.includes(req.query.search.trim().toLowerCase())
         );
 
         res.render('delete', {
@@ -38,7 +38,7 @@ exports.renderDeleteCustom = async (req, res) => {
     } else if (req.query?.search && !req.params?.categ) {
       customBeat.find({}, '-song -password', (err, songs) => {
         const searched = songs.filter(song =>
-          song.name.includes(req.query.search.trim())
+          song.name.includes(req.query.search.trim().toLowerCase())
         );
 
         res.render('delete', {
