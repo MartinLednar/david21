@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const PublicSong = require('../models/publicBeatModel');
+const email = require('../utils/email');
 
 exports.renderSite = async (req, res) => {
   try {
@@ -17,4 +18,13 @@ exports.renderSite = async (req, res) => {
   } catch (err) {
     console.log(err.message);
   }
+};
+
+exports.sendNewOrder = async (req, res) => {
+  email.sendEmailOrder({
+    from: req.body.mail,
+    message: req.body.message,
+  });
+
+  res.redirect('/');
 };

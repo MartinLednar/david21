@@ -5,4 +5,6 @@ const router = express.Router();
 
 router.route('/').get(mainController.renderSite);
 
+router.post('/sendOrder', mainController.sendNewOrder);
+
 module.exports = router;
