@@ -61,3 +61,14 @@ EMAIL_USERNAME=60cd9c7ffa9004
 EMAIL_PASSWORD=504666de52629a
 EMAIL_HOST=smtp.mailtrap.io
 EMAIL_PORT=2525
+
+//pouzijem - prihlasenie (martinlednar1122@gmail.com) 
+
+var transport = nodemailer.createTransport({
+  host: "smtp.mailtrap.io",
+  port: 2525,
+  auth: {
+    user: "2c3c2bb7564e71",
+    pass: "090e85d897c15d"
+  }
+});
