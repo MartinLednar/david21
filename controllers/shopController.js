@@ -4,9 +4,16 @@ const PublicSong = require('../models/publicBeatModel');
 
 exports.renderShop = async (req, res) => {
   try {
+    let priceOverall = 0;
     if (!req.session.cart) {
       req.session.cart = [];
     }
+    if (req.session.cart.length !== 0) {
+      priceOverall = req.session.cart.reduce((acc, item) => {
+        return acc + item.price * 1;
+      }, 0);
+    }
+
     if (req.query?.search) {
       PublicSong.find({}, '-song', (err, songs) => {
         const searched = songs.filter(song =>
@@ -17,6 +24,7 @@ exports.renderShop = async (req, res) => {
           foundItems: searched.reverse(),
           categ: 'public',
           cartItems: req.session.cart,
+          priceOverall,
         });
       });
     } else {
@@ -25,6 +33,7 @@ exports.renderShop = async (req, res) => {
           foundItems: songs.reverse(),
           categ: 'public',
           cartItems: req.session.cart,
+          priceOverall,
         });
       });
     }
@@ -35,8 +44,14 @@ exports.renderShop = async (req, res) => {
 
 exports.renderShopCustom = async (req, res) => {
   try {
+    let priceOverall = 0;
     if (!req.session.cart) {
       req.session.cart = [];
+    }
+    if (req.session.cart.length !== 0) {
+      priceOverall = req.session.cart.reduce((acc, item) => {
+        return acc + item.price * 1;
+      }, 0);
     }
     if (req.query?.search) {
       CustomBeat.find({}, '-song -password', (err, songs) => {
@@ -49,6 +64,7 @@ exports.renderShopCustom = async (req, res) => {
           foundItems: searched.reverse(),
           categ: 'ordered',
           cartItems: req.session.cart,
+          priceOverall,
         });
       });
     } else {
@@ -58,6 +74,7 @@ exports.renderShopCustom = async (req, res) => {
           foundItems: songs.reverse(),
           categ: 'ordered',
           cartItems: req.session.cart,
+          priceOverall,
         });
       });
     }

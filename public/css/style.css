@@ -1353,6 +1353,7 @@ main {
 /*////////////Not found page//////////*/
 
 /*////////////Cart//////////*/
+
 .cart-content {
   height: 100vh;
   min-height: 600px;
@@ -1423,15 +1424,24 @@ main {
   width: 100%;
   height: auto;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding-bottom: 2rem;
 }
 
+.cart-overall {
+  padding-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+  color: white;
+  font-weight: 500;
+}
+
 .cart-side-btn {
   text-decoration: none;
   color: var(--green);
-  font-weight: 500;
+  font-weight: 400;
   border: 1px solid var(--green);
   font-size: 2rem;
   width: 60%;
