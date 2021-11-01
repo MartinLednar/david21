@@ -14,7 +14,10 @@ const publicBeatsSchema = new mongoose.Schema({
   },
   coAuthors: {
     type: [String],
-    // default: '',
+  },
+  category: {
+    type: String,
+    default: 'public',
   },
   price: {
     type: Number,

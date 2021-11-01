@@ -28,6 +28,10 @@ const customBeatsSchema = new mongoose.Schema({
     type: [String],
     default: '',
   },
+  category: {
+    type: String,
+    default: 'custom',
+  },
   price: {
     type: Number,
     required: true,
