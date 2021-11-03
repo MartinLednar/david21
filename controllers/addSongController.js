@@ -24,9 +24,15 @@ exports.addSong = async (req, res) => {
 
     if (req.body?.email && req.body?.password) {
       //Send mail befor encryption//
-      email.sendEmailInShop({
+      email.sendEmailBuy({
         to: req.body.email.trim(),
         code: req.body.password,
+        attachments: [
+          {
+            filename: req.body.song.filename,
+            content: req.body.song.file,
+          },
+        ],
       });
       //Send mail befor encryption//
 

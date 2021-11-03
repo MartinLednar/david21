@@ -1,3 +1,38 @@
+const exampleBtn = document.querySelector('.contact-link');
+const exampleOverlay = document.querySelector('.example-overlay');
+const closeExampleBtn = document.querySelector('.close-overlay');
+
+exampleBtn.addEventListener('click', function () {
+  exampleOverlay.classList.remove('hidden-overlay');
+  exampleOverlay.closest('body').style.overflow = 'hidden';
+});
+
+exampleOverlay.addEventListener('click', function () {
+  exampleOverlay.classList.add('hidden-overlay');
+  exampleOverlay.closest('body').style.overflow = 'visible';
+});
+
+closeExampleBtn.addEventListener('click', function () {
+  exampleOverlay.classList.add('hidden-overlay');
+  exampleOverlay.closest('body').style.overflow = 'visible';
+});
+
+//Form contact file input//
+const fileInput = document.querySelector('.example-file');
+const errMessage = document.querySelector('.error-big-file');
+
+fileInput.addEventListener('change', function () {
+  const fileSize = (this.files[0].size / 1024 / 1024).toFixed(2);
+
+  if (fileSize > 5) {
+    this.value = null;
+    errMessage.classList.remove('hidden-overlay');
+  } else {
+    errMessage.classList.add('hidden-overlay');
+  }
+});
+//Form contact file input//
+
 const slider = function () {
   const sliderBox = document.querySelector('.slider');
   const slides = document.querySelectorAll('.slide');
@@ -102,22 +137,3 @@ const slider = function () {
 };
 
 slider();
-
-const exampleBtn = document.querySelector('.contact-link');
-const exampleOverlay = document.querySelector('.example-overlay');
-const closeExampleBtn = document.querySelector('.close-overlay');
-
-exampleBtn.addEventListener('click', function () {
-  exampleOverlay.classList.remove('hidden-overlay');
-  exampleOverlay.closest('body').style.overflow = 'hidden';
-});
-
-exampleOverlay.addEventListener('click', function () {
-  exampleOverlay.classList.add('hidden-overlay');
-  exampleOverlay.closest('body').style.overflow = 'visible';
-});
-
-closeExampleBtn.addEventListener('click', function () {
-  exampleOverlay.classList.add('hidden-overlay');
-  exampleOverlay.closest('body').style.overflow = 'visible';
-});

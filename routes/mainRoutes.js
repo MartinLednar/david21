@@ -1,10 +1,15 @@
 const express = require('express');
+const multer = require('multer');
 const mainController = require('../controllers/mainController');
+
+const upload = multer();
 
 const router = express.Router();
 
 router.route('/').get(mainController.renderSite);
 
-router.post('/sendOrder', mainController.sendNewOrder);
+router
+  .route('/sendOrder')
+  .post(upload.single('example'), mainController.sendNewOrder);
 
 module.exports = router;

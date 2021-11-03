@@ -19,7 +19,7 @@ exports.renderSite = async (req, res) => {
         categ: 'public',
         foundItems: songs.slice(-3).reverse(),
         cartItems: req.session.cart,
-        priceOverall: priceOverall,
+        priceOverall: priceOverall.toFixed(2),
       });
     });
   } catch (err) {
@@ -28,10 +28,20 @@ exports.renderSite = async (req, res) => {
 };
 
 exports.sendNewOrder = async (req, res) => {
-  email.sendEmailOrder({
-    from: req.body.mail,
-    message: req.body.message,
-  });
+  try {
+    email.sendEmailOrder({
+      from: req.body.mail,
+      message: req.body.message,
+      attachments: [
+        {
+          filename: req.file.originalname,
+          content: req.file.buffer,
+        },
+      ],
+    });
 
-  res.redirect('/');
+    res.redirect('/#contact');
+  } catch (err) {
+    console.log('err');
+  }
 };

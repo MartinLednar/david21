@@ -24,7 +24,7 @@ exports.renderShop = async (req, res) => {
           foundItems: searched.reverse(),
           categ: 'public',
           cartItems: req.session.cart,
-          priceOverall,
+          priceOverall: priceOverall.toFixed(2),
         });
       });
     } else {
@@ -33,7 +33,7 @@ exports.renderShop = async (req, res) => {
           foundItems: songs.reverse(),
           categ: 'public',
           cartItems: req.session.cart,
-          priceOverall,
+          priceOverall: priceOverall.toFixed(2),
         });
       });
     }
@@ -64,7 +64,7 @@ exports.renderShopCustom = async (req, res) => {
           foundItems: searched.reverse(),
           categ: 'ordered',
           cartItems: req.session.cart,
-          priceOverall,
+          priceOverall: priceOverall.toFixed(2),
         });
       });
     } else {
@@ -74,7 +74,7 @@ exports.renderShopCustom = async (req, res) => {
           foundItems: songs.reverse(),
           categ: 'ordered',
           cartItems: req.session.cart,
-          priceOverall,
+          priceOverall: priceOverall.toFixed(2),
         });
       });
     }

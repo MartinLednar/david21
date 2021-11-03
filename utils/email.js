@@ -50,12 +50,12 @@ exports.sendEmailOrder = async options => {
   });
 
   //2 Define the email options
-  console.log(options);
   const mailOptions = {
     from: options.from,
     to: 'highdavidbeatz@gmail.com',
     subject: 'David21 || Offical - New song order',
     html: data,
+    attachments: options.attachments,
   };
 
   //3 Send email

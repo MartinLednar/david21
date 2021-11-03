@@ -10,7 +10,7 @@ exports.publicToCart = async (req, res) => {
     if (req.session.cart.length === 0) {
       PublicSong.findById(id, '-song', function (err, song) {
         req.session.cart.push(song);
-        res.redirect('/');
+        res.redirect('/shop');
       });
     } else {
       const itemExists = req.session.cart.every(song => {
@@ -18,11 +18,11 @@ exports.publicToCart = async (req, res) => {
       });
 
       if (!itemExists) {
-        res.redirect('/');
+        res.redirect('/shop');
       } else {
         PublicSong.findById(id, '-song', function (err, song) {
           req.session.cart.push(song);
-          res.redirect('/');
+          res.redirect('/shop');
         });
       }
     }
@@ -42,7 +42,7 @@ exports.orderedToCart = async (req, res) => {
             return song._id !== clickedSong;
           });
           if (!itemExists) {
-            res.redirect('/');
+            res.redirect('/shop/ordered');
           } else {
             song.password = undefined;
             req.session.cart.push(song);
@@ -62,7 +62,7 @@ exports.deleteFromCart = async (req, res) => {
   try {
     const id = req.params.id;
     req.session.cart = req.session.cart.filter(el => el._id !== id);
-    res.redirect('/');
+    res.redirect('/shop');
   } catch (err) {
     console.log(err.message);
   }

@@ -33,7 +33,6 @@ const publicBeatsSchema = new mongoose.Schema({
 publicBeatsSchema.pre('save', function (next) {
   //Setting Name and Co-authors
   this.name = this.name.toLowerCase();
-  console.log(this.coAuthors);
   if (this.coAuthors[0] !== '') {
     const coAuthors = this.coAuthors[0].split(',');
 

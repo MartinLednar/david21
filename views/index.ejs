@@ -100,7 +100,7 @@
                   <%=song.name[0].toUpperCase() + song.name.slice(1)%>
                 </h3>
                 <h4 class="beat-author"><%=song.author%></h4>
-                <h5 class="beat-coauthors"><%=song.coAuthors.join(',')%></h5>
+                <h5 class="beat-coauthors"><%=song.coAuthors.join(', ')%></h5>
               </div>
 
               <audio
@@ -184,16 +184,45 @@
       <section class="section section-contact" id="contact">
         <div class="example-overlay hidden-overlay">
           <span class="close-overlay">X</span>
-          <img
-            src="img/example-image.png"
-            alt="example image"
-            class="example-img"
-          />
+          <div class="instructions-box">
+            <h1 class="instructions-heading">Instructions</h1>
+            <ul class="instructions-list">
+              <li class="instructions-item">
+                <span class="item-bullet">&#8226;</span> provide name for your
+                song wich will <br />
+                be displayed in the shop
+              </li>
+              <li class="instructions-item">
+                <span class="item-bullet">&#8226;</span> write what type or
+                genre the song should be
+              </li>
+              <li class="instructions-item">
+                <span class="item-bullet">&#8226;</span> if you don't know
+                please provide example file <br />
+                that is similiar as your desired song
+              </li>
+              <li class="instructions-item">
+                <span class="item-bullet">&#8226;</span> the file should be up
+                to 5 MB
+              </li>
+
+              <li class="instructions-item">
+                <span class="item-bullet">&#8226;</span> when the song is in the
+                shop you will recieve <br />
+                an email with code wich you then use to add song to cart
+              </li>
+            </ul>
+          </div>
           <div class="example-box"></div>
         </div>
         <div class="section-wrapper">
           <div class="section-content-box">
-            <form action="/sendOrder" method="post" class="contact-form">
+            <form
+              action="/sendOrder"
+              method="post"
+              class="contact-form"
+              enctype="multipart/form-data"
+            >
               <input
                 type="email"
                 name="mail"
@@ -211,6 +240,12 @@
                 placeholder="Your message.."
               ></textarea>
 
+              <p class="error-big-file hidden-overlay">
+                Your file was bigger then 5 MB
+              </p>
+
+              <input type="file" class="example-file" name="example" />
+
               <button class="contact-btn btn-green" type="submit">Send</button>
             </form>
           </div>
@@ -223,11 +258,12 @@
               </h2>
               <p class="section-text">
                 If you want custom beat write wich type. If you need
-                <strong>help</strong> , follow the example in the link below.
+                <strong>help</strong> , follow the instructions in the link
+                below.
               </p>
 
               <a class="contact-link">
-                Example message
+                Instructions for message
                 <svg class="feather contact-icon">
                   <use xlink:href="./img/feather-sprite.svg#chevron-right" />
                 </svg>

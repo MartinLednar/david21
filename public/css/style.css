@@ -628,9 +628,32 @@ main {
   display: none;
 }
 
-.example-img {
-  width: 35%;
-  height: auto;
+.instructions-box {
+  background-color: var(--light);
+  padding: 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.instructions-heading {
+  font-size: 3rem;
+}
+
+.instructions-list {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.instructions-item {
+  margin-top: 1rem;
+  list-style: none;
+  font-size: 2rem;
+}
+
+.item-bullet {
+  font-size: 3rem;
+  color: var(--green);
 }
 
 .close-overlay {
@@ -668,7 +691,7 @@ main {
 }
 
 .contact-message {
-  margin-top: 3rem;
+  margin-top: 2rem;
   color: var(--white);
   background-color: transparent;
   border: none;
@@ -681,8 +704,19 @@ main {
   resize: none;
 }
 
+.error-big-file {
+  font-size: 1.5rem;
+  color: red;
+  font-weight: 300;
+  margin-top: 1.5rem;
+}
+
+.example-file {
+  margin-top: 2rem;
+}
+
 .contact-btn {
-  margin-top: 4rem;
+  margin-top: 2rem;
   cursor: pointer;
   background-color: transparent;
   font-size: 2rem;
@@ -1197,6 +1231,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-bottom: 2rem;
 }
 
 .add-form {
@@ -1427,7 +1462,7 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-bottom: 2rem;
+  padding: 2rem 0;
 }
 
 .cart-overall {
