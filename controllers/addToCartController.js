@@ -5,7 +5,6 @@ const PublicSong = require('../models/publicBeatModel');
 
 exports.publicToCart = async (req, res) => {
   try {
-    console.log(req.session.cart);
     const id = req.params.id;
     if (req.session.cart.length === 0) {
       PublicSong.findById(id, '-song', function (err, song) {

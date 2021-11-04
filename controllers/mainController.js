@@ -29,19 +29,22 @@ exports.renderSite = async (req, res) => {
 
 exports.sendNewOrder = async (req, res) => {
   try {
+    filename = req?.file?.originalname || 'No file provided';
+    content = req?.file?.buffer || undefined;
+
     email.sendEmailOrder({
       from: req.body.mail,
       message: req.body.message,
       attachments: [
         {
-          filename: req.file.originalname,
-          content: req.file.buffer,
+          filename,
+          content,
         },
       ],
     });
 
     res.redirect('/#contact');
   } catch (err) {
-    console.log('err');
+    console.log(err);
   }
 };
