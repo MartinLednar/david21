@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="/img/logo21SVG.svg" type="image/x-icon" />
+    <title>David21 || Song Adding</title>
+  </head>
+
+  <body>
+    <div class="add-buy-email-wrapper">
+      <h1 class="section-heading" id="add-email-hm">
+        Enter mail for payment
+        <span class="section-heading-upper" id="add-email-hs"
+          >Enter mail for payment</span
+        >
+      </h1>
+
+      <p class="add-email-msg">
+        The songs you'll buy, will be sended to this e-mail address
+      </p>
+
+      <form action="/pay-mail" class="add-buy-mail-form" method="post">
+        <input
+          type="email"
+          name="buyEmail"
+          class="add-buy-email-input"
+          placeholder="E-mail"
+        />
+        <button type="submit" class="btn-green add-buy-email-btn">
+          Submit
+        </button>
+      </form>
+
+      <%if(addedEmail){%>
+      <p class="add-email-curr-email">Current email : <%=addedEmail%></p>
+      <%}%>
+
+      <div class="add-email-links-box">
+        <a href="/" class="add-email-continue add-email-link-left">
+          <svg class="feather email-icon">
+            <use xlink:href="./img/feather-sprite.svg#chevron-left" />
+          </svg>
+          Continue shopping
+        </a>
+
+        <a href="/pay" class="add-email-continue">
+          Continue to payment
+          <svg class="feather email-icon">
+            <use xlink:href="./img/feather-sprite.svg#chevron-right" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

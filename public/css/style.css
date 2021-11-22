@@ -1730,6 +1730,107 @@ main {
 }
 /*//////////////// Admin menu //////////////*/
 
+/*//////////////// Add buy-email page //////////////*/
+.add-buy-email-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.add-buy-mail-form {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.8rem;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.add-buy-email-input {
+  padding: 1.3rem 1rem;
+  font-size: inherit;
+  color: #ffff;
+  background-color: transparent;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  border: none;
+  border-bottom: 1px solid var(--white);
+  outline: none;
+  border-radius: 0;
+}
+
+#add-email-hm {
+  font-size: 5rem;
+}
+
+#add-email-hs {
+  left: 0.6%;
+}
+
+.add-email-msg {
+  text-align: center;
+  color: var(--white);
+  font-size: 2rem;
+  margin: 1.5rem 0;
+}
+
+.add-buy-email-btn {
+  font-size: inherit;
+  font-family: inherit;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.add-email-curr-email {
+  text-align: center;
+  color: var(--white);
+  font-size: 1.5rem;
+  margin-top: 3rem;
+}
+
+.add-email-links-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.add-email-continue {
+  text-decoration: none;
+  margin-top: 2rem;
+  /* margin-left: 3rem; */
+  font-size: 1.5rem;
+  text-align: center;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s;
+}
+
+.email-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  transition: all 0.5s;
+}
+
+.add-email-continue:hover {
+  color: var(--green);
+}
+
+.add-email-continue:hover .email-icon {
+  color: var(--green);
+  transform: translateX(0.5rem);
+}
+
+.add-email-link-left:hover .email-icon {
+  transform: translateX(-0.5rem);
+}
+/*//////////////// Add buy-email page //////////////*/
+
+/*//////////////// Success payment page //////////////*/
+
+/*//////////////// Success payment page //////////////*/
+
 /*////////////Queries//////////*/
 @media screen and (max-width: 1230px) {
   .slide h1 {
