@@ -23,6 +23,10 @@ const publicBeatsSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  quantity: {
+    type: Number,
+    default: 1,
+  },
   song: {
     file: { type: Buffer, required: true },
     mimetype: { type: String, required: true },

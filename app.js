@@ -12,6 +12,8 @@ const loginRouter = require('./routes/loginRoutes');
 const sendSongRouter = require('./routes/sendSongRoutes');
 const notFoundRouter = require('./routes/notFoundRoutes');
 const addToCartRouter = require('./routes/addToCartRoutes');
+const payRouter = require('./routes/payRoutes');
+const paymentRouter = require('./routes/paymentRoutes');
 
 const app = express();
 
@@ -45,6 +47,9 @@ app.use('/cart', addToCartRouter);
 app.use('/delete', deleteSongRouter);
 app.use('/shop', shopRouter);
 app.use('/songs', sendSongRouter);
+app.use('/pay', payRouter);
+app.use('/payment', paymentRouter);
+
 app.use('*', notFoundRouter);
 
 module.exports = app;
