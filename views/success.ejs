@@ -10,7 +10,20 @@
   </head>
 
   <body>
-    <h1>Success</h1>
-    <a href="/">Spat na hlavnu</a>
+    <div class="success-wrapper">
+      <h1 class="section-heading" id="success-hm">
+        Thank you for your purchase!
+        <span class="section-heading-upper" id="success-hs"
+          >Thank you for your purchase!</span
+        >
+      </h1>
+
+      <p class="success-msg">
+        The songs you have bought, have been sent to this e-mail address :
+        <%=buyEmail%>
+      </p>
+
+      <a class="btn-green success-btn" href="/">Back to homepage</a>
+    </div>
   </body>
 </html>

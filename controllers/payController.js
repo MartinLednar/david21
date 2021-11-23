@@ -12,19 +12,17 @@ exports.createCheckoutSession = async (req, res, next) => {
       };
     });
 
+    const promotionCodes = await stripe.promotionCodes.list();
+
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       success_url: `${req.protocol}://${req.get('host')}/payment-success`,
-      // success_url: `${req.protocol}://${req.get('host')}/`,
       cancel_url: `${req.protocol}://${req.get('host')}/pay-mail`,
       customer_email: req.session.buyEmail,
+      allow_promotion_codes: true,
       line_items: [...itemsToCart],
     });
 
-    //   res.status(200).json({
-    //     status: 'success',
-    //     stripeSession: session,
-    //   });
     res.redirect(session.url);
   } catch (err) {
     res.redirect('/');

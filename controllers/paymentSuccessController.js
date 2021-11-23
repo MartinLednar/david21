@@ -1,3 +1,4 @@
 exports.handlePayment = (req, res) => {
-  res.render('success');
+  req.session.cart = null;
+  res.render('success', { buyEmail: req.session.buyEmail });
 };

@@ -1771,7 +1771,7 @@ main {
   text-align: center;
   color: var(--white);
   font-size: 2rem;
-  margin: 1.5rem 0;
+  margin: 1.5rem 0 3rem;
 }
 
 .add-buy-email-btn {
@@ -1792,12 +1792,12 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  margin-top: 5rem;
 }
 
 .add-email-continue {
   text-decoration: none;
-  margin-top: 2rem;
-  /* margin-left: 3rem; */
+  margin-left: 1.5rem;
   font-size: 1.5rem;
   text-align: center;
   color: var(--white);
@@ -1825,9 +1825,35 @@ main {
 .add-email-link-left:hover .email-icon {
   transform: translateX(-0.5rem);
 }
+
 /*//////////////// Add buy-email page //////////////*/
 
 /*//////////////// Success payment page //////////////*/
+.success-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#success-hm {
+  font-size: 5rem;
+}
+
+#success-hs {
+  left: 0.6%;
+}
+
+.success-msg {
+  color: var(--white);
+  font-size: 1.8rem;
+  margin-top: 1rem;
+  margin-bottom: 4rem;
+}
+
+.success-btn {
+  font-size: 1.5rem;
+}
 
 /*//////////////// Success payment page //////////////*/
 
