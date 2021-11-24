@@ -15,7 +15,7 @@ exports.renderSite = async (req, res) => {
     }
 
     PublicSong.find({}, '-song', (err, songs) => {
-      res.status(200).render('index', {
+      res.render('index', {
         categ: 'public',
         foundItems: songs.slice(-3).reverse(),
         cartItems: req.session.cart,

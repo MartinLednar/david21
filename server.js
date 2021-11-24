@@ -11,7 +11,7 @@ if (process.env.NODE_ENV === 'production') {
       useUnifiedTopology: true,
     })
     .then(() => {
-      console.log('DB connection successful');
+      console.log('DB Atlas connection successful');
     });
 } else {
   mongoose
