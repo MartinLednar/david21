@@ -42,6 +42,7 @@ exports.renderAdminMenu = async (req, res) => {
     // });
     // res.render('login', { errMessage: false });
     //Encrypting password and creating admin//
+
     //Checking for right email and password//
     Admin.find({}, async (err, admin) => {
       if (admin[0].email === req.body.email) {
