@@ -26,32 +26,10 @@ app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(cookieParser());
 
-// if (process.env.NODE_ENV === 'production') {
-//   mongoose
-//     .connect(process.env.DATABASE, {
-//       useNewUrlParser: true,
-//       useUnifiedTopology: true,
-//     })
-//     .then(() => {
-//       console.log('DB Atlas connection successful');
-//     });
-// } else {
-//   mongoose
-//     .connect(process.env.DATABASE_LOCAL, {
-//       useNewUrlParser: true,
-//       useUnifiedTopology: true,
-//     })
-//     .then(c => {
-//       console.log('DB connection successful', c);
-//     });
-// }
 app.use(
   session({
     store: MongoStore.create({
-      mongoUrl: mongoose.connect(process.env.DATABASE, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      }),
+      mongoUrl: mongoose.connection,
       ttl: 14 * 24 * 60 * 60, // =  expiration
       autoRemove: 'disabled',
       autoRemoveInterval: 15,
