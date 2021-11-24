@@ -26,7 +26,7 @@ exports.publicToCart = async (req, res) => {
       }
     }
   } catch (err) {
-    console.log(err.message);
+    res.redirect('/');
   }
 };
 
@@ -52,7 +52,7 @@ exports.orderedToCart = async (req, res) => {
       });
     });
   } catch (err) {
-    console.log(err.message);
+    res.redirect('/');
   }
 };
 
@@ -62,6 +62,6 @@ exports.deleteFromCart = async (req, res) => {
     req.session.cart = req.session.cart.filter(el => el._id !== id);
     res.redirect('/shop');
   } catch (err) {
-    console.log(err.message);
+    res.redirect('/');
   }
 };
