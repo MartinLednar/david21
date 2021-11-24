@@ -4,18 +4,18 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const ejs = require('ejs');
 
-const addSongRouter = require('./routes/addSongRoutes');
-const deleteSongRouter = require('./routes/deleteSongRoutes');
-const mainRouter = require('./routes/mainRoutes');
-const shopRouter = require('./routes/shopRoutes');
-const loginRouter = require('./routes/loginRoutes');
-const sendSongRouter = require('./routes/sendSongRoutes');
-const notFoundRouter = require('./routes/notFoundRoutes');
-const addToCartRouter = require('./routes/addToCartRoutes');
-const payRouter = require('./routes/payRoutes');
+const addSongRouter = require('/routes/addSongRoutes');
+const deleteSongRouter = require('/routes/deleteSongRoutes');
+const mainRouter = require('/routes/mainRoutes');
+const shopRouter = require('/routes/shopRoutes');
+const loginRouter = require('/routes/loginRoutes');
+const sendSongRouter = require('/routes/sendSongRoutes');
+const notFoundRouter = require('/routes/notFoundRoutes');
+const addToCartRouter = require('/routes/addToCartRoutes');
+const payRouter = require('/routes/payRoutes');
 
-const paymentSuccessRouter = require('./routes/paymentSuccessRoutes');
-const payMailRouter = require('./routes/payMailRoutes');
+const paymentSuccessRouter = require('/routes/paymentSuccessRoutes');
+const payMailRouter = require('/routes/payMailRoutes');
 
 const app = express();
 
