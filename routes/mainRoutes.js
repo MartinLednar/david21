@@ -1,6 +1,6 @@
 const express = require('express');
 const multer = require('multer');
-const mainController = require(__dirname + '/controllers/mainController');
+const mainController = require('../controllers/mainController');
 
 const upload = multer();
 

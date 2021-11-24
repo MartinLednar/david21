@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const PublicSong = require(__dirname + '/models/publicBeatModel');
-const email = require(__dirname + '/utils/email');
+const PublicSong = require('../models/publicBeatModel');
+const email = require('../utils/email');
 
 exports.renderSite = async (req, res) => {
   try {
