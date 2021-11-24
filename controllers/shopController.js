@@ -55,7 +55,6 @@ exports.renderShopCustom = async (req, res) => {
     }
     if (req.query?.search) {
       CustomBeat.find({}, '-song -password', (err, songs) => {
-        console.log(songs);
         const searched = songs.filter(song =>
           song.name.includes(req.query.search.trim().toLowerCase())
         );
@@ -69,7 +68,6 @@ exports.renderShopCustom = async (req, res) => {
       });
     } else {
       CustomBeat.find({}, '-song -password', (err, songs) => {
-        console.log(songs);
         res.render('shop', {
           foundItems: songs.reverse(),
           categ: 'ordered',

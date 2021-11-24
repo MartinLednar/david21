@@ -32,7 +32,6 @@ exports.publicToCart = async (req, res) => {
 
 exports.orderedToCart = async (req, res) => {
   try {
-    console.log(req.body);
     const { clickedSong, formPassword } = req.body;
     CustomSong.findById(clickedSong, '-song', function (err, song) {
       bcrypt.compare(formPassword.trim(), song.password, (err, result) => {
