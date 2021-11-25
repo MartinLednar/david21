@@ -34,7 +34,7 @@ app.use(
         : process.env.DATABASE_LOCAL,
       ttl: 14 * 24 * 60 * 60, // =  expiration
       autoRemove: 'disabled',
-      cookie: { domain: 'https://david-21.herokuapp.com' },
+      // cookie: { domain: 'https://david-21.herokuapp.com' },
       autoRemoveInterval: 15,
       crypto: {
         secret: process.env.SESSION_CRYPTO_SECRET,
@@ -63,19 +63,19 @@ app.use(
 //   })
 // );
 app.use(express.urlencoded({ extended: true }));
-// app.use(express.static(__dirname + '/public'));
+app.use(express.static('public'));
 
-app.use(
-  express.static(__dirname + '/public', {
-    maxAge: 86400000,
-    setHeaders: function (res, path) {
-      res.setHeader(
-        'Expires',
-        new Date(Date.now() + 2592000000 * 30).toUTCString()
-      );
-    },
-  })
-);
+// app.use(
+//   express.static(__dirname + '/public', {
+//     maxAge: 86400000,
+//     setHeaders: function (res, path) {
+//       res.setHeader(
+//         'Expires',
+//         new Date(Date.now() + 2592000000 * 30).toUTCString()
+//       );
+//     },
+//   })
+// );
 
 app.use('/', mainRouter);
 app.use('/login', loginRouter);
