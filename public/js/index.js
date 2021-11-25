@@ -82,7 +82,6 @@ if (document.querySelector('.audio')) {
     const duration = audio.duration;
 
     audio.currentTime = (clickX / width) * duration;
-    console.log(audio.currentTime);
   }
 
   function renderTimes(song) {
