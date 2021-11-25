@@ -207,7 +207,6 @@ mobileNav.addEventListener('click', function () {
 //Cart Start//
 
 cartBtn.addEventListener('click', function () {
-  console.log('clicked');
   if (!cart.classList.contains('active-cart')) {
     cart.classList.add('active-cart');
   } else {
@@ -225,7 +224,6 @@ cartMinus.addEventListener('click', function () {
 
 const stickyNav = function (entries) {
   const [entry] = entries;
-  console.log(entry);
 
   if (!entry.isIntersecting) {
     nav.classList.add('sticky');
