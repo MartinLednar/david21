@@ -77,7 +77,7 @@ if (document.querySelector('.audio')) {
   }
 
   function setProgress(e) {
-    const width = e.clientWidth;
+    const width = this.clientWidth;
     const clickX = e.offsetX;
     const duration = audio.duration;
 
