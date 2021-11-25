@@ -54,7 +54,6 @@ exports.renderAdminMenu = async (req, res) => {
               const token = signToken(admin[0]._id);
               res.cookie('jwt', token, {
                 httpOnly: true,
-                domain: 'https://david-21.herokuapp.com',
                 secure: true,
               });
               res.render('adminMenu');
