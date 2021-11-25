@@ -10,6 +10,7 @@ exports.sendSong = async (req, res) => {
         res.writeHead(200, {
           'Content-Type': song.song.mimetype,
           'Content-Length': song.song.file.length,
+          'Accept-Ranges': 'bytes',
         });
         res.end(song.song.file);
       });
@@ -18,6 +19,7 @@ exports.sendSong = async (req, res) => {
         res.writeHead(200, {
           'Content-Type': song.song.mimetype,
           'Content-Length': song.song.file.length,
+          'Accept-Ranges': 'bytes',
         });
         res.end(song.song.file);
       });
