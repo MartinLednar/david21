@@ -81,8 +81,6 @@ if (document.querySelector('.audio')) {
     const clickX = e.offsetX;
     const duration = audio.duration;
 
-    console.log(width, clickX, duration);
-
     audio.currentTime = (clickX / width) * duration;
     console.log(audio.currentTime);
   }
