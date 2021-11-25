@@ -1,7 +1,6 @@
 const customBeat = require('../models/customBeatModel');
 const publicBeat = require('../models/publicBeatModel');
 const email = require('../utils/email');
-const songsFiles = [];
 
 exports.handlePayment = async (req, res) => {
   try {

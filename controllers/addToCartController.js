@@ -8,6 +8,11 @@ exports.publicToCart = async (req, res) => {
     const id = req.params.id;
     if (req.session.cart.length === 0) {
       PublicSong.findById(id, '-song', function (err, song) {
+        if (err || !song) {
+          req.session.cart = [];
+          return res.redirect('/');
+        }
+
         req.session.cart.push(song);
         res.redirect('/shop');
       });
@@ -20,6 +25,11 @@ exports.publicToCart = async (req, res) => {
         res.redirect('/shop');
       } else {
         PublicSong.findById(id, '-song', function (err, song) {
+          if (err || !song) {
+            req.session.cart = [];
+            return res.redirect('/');
+          }
+
           req.session.cart.push(song);
           res.redirect('/shop');
         });
@@ -34,6 +44,10 @@ exports.orderedToCart = async (req, res) => {
   try {
     const { clickedSong, formPassword } = req.body;
     CustomSong.findById(clickedSong, '-song', function (err, song) {
+      if (err || !song) {
+        req.session.cart = [];
+        return res.redirect('/');
+      }
       bcrypt.compare(formPassword.trim(), song.password, (err, result) => {
         if (result) {
           const itemExists = req.session.cart.every(song => {
@@ -62,6 +76,7 @@ exports.deleteFromCart = async (req, res) => {
     req.session.cart = req.session.cart.filter(el => el._id !== id);
     res.redirect('/shop');
   } catch (err) {
+    req.session.cart = [];
     res.redirect('/');
   }
 };

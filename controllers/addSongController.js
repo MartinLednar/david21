@@ -10,7 +10,7 @@ exports.renderSite = async (req, res) => {
   try {
     res.status(200).render('add');
   } catch (err) {
-    console.log(err.message);
+    res.redirect('/login');
   }
 };
 
@@ -49,6 +49,6 @@ exports.addSong = async (req, res) => {
       res.status(200).render('add');
     }
   } catch (err) {
-    console.log(err.message);
+    console.log(err);
   }
 };

@@ -23,7 +23,7 @@ exports.renderSite = async (req, res) => {
       });
     });
   } catch (err) {
-    console.log(err.message, 'Helloooo');
+    res.redirect('/');
   }
 };
 

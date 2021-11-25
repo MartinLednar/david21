@@ -19,7 +19,6 @@ exports.sendEmailInShop = async options => {
       code: options.code,
     }
   );
-
   //2 Define the email options
   console.log(options);
   const mailOptions = {

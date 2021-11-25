@@ -23,6 +23,6 @@ exports.sendSong = async (req, res) => {
       });
     }
   } catch (err) {
-    console.log(err.message);
+    console.log(err);
   }
 };
