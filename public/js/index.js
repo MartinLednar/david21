@@ -77,7 +77,7 @@ if (document.querySelector('.audio')) {
   }
 
   function setProgress(e) {
-    const width = this.clientWidth;
+    const width = e.clientWidth;
     const clickX = e.offsetX;
     const duration = audio.duration;
 
@@ -102,7 +102,7 @@ if (document.querySelector('.audio')) {
     btn.classList.add('play-btn-loading');
     btn.addEventListener('click', function (e) {
       clickedSong = e.target.closest('.beat');
-      console.log(clickedSong);
+
       if (clickedSong === currSong) {
         audio = currSong.querySelector('.audio');
         if (!clickedSong.classList.contains('play')) {
