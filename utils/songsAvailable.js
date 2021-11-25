@@ -39,7 +39,7 @@ exports.songsAvailable = async (req, res, next) => {
 
   if (publicSongs.length === 0 && orderedSongs.length !== 0) {
     const foundOrderedSongs = (
-      await publicBeat.find({ _id: { $in: [...orderedSongs] } }, '-song')
+      await customBeat.find({ _id: { $in: [...orderedSongs] } }, '-song')
     ).filter(song => song);
 
     req.session.cart = [...availableSongs];
