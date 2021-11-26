@@ -25,6 +25,6 @@ exports.sendSong = async (req, res) => {
       });
     }
   } catch (err) {
-    console.log(err);
+    res.redirect('/');
   }
 };

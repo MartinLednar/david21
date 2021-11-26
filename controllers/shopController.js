@@ -38,7 +38,7 @@ exports.renderShop = async (req, res) => {
       });
     }
   } catch (err) {
-    console.log(err.message);
+    res.redirect('/');
   }
 };
 
@@ -77,6 +77,6 @@ exports.renderShopCustom = async (req, res) => {
       });
     }
   } catch (err) {
-    console.log(err.message);
+    res.redirect('/');
   }
 };

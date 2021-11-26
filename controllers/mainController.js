@@ -45,6 +45,6 @@ exports.sendNewOrder = async (req, res) => {
 
     res.redirect('/#contact');
   } catch (err) {
-    console.log(err);
+    res.redirect('/');
   }
 };

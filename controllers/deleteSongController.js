@@ -25,7 +25,7 @@ exports.renderDeletePublic = async (req, res) => {
       });
     }
   } catch (err) {
-    console.log(err.message);
+    res.redirect('/delete');
   }
 };
 
@@ -52,6 +52,6 @@ exports.renderDeleteCustom = async (req, res) => {
       });
     }
   } catch (err) {
-    console.log(err.message);
+    res.redirect('/delete');
   }
 };

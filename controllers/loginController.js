@@ -15,7 +15,7 @@ exports.renderSite = async (req, res) => {
       errMessage: undefined,
     });
   } catch (err) {
-    console.log(err.message);
+    res.redirect('/');
   }
 };
 
@@ -23,7 +23,7 @@ exports.renderMenu = async (req, res) => {
   try {
     res.status(200).render('adminMenu');
   } catch (err) {
-    console.log(err.message);
+    res.redirect('/');
   }
 };
 
@@ -72,6 +72,8 @@ exports.renderAdminMenu = async (req, res) => {
     });
     //Checking for right email and password//
   } catch (err) {
-    console.log(err.message);
+    res.render('login', {
+      errMessage: true,
+    });
   }
 };
