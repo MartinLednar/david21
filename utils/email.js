@@ -46,6 +46,7 @@ exports.sendEmailOrder = async options => {
 
   var transporter = nodemailer.createTransport({
     service: 'Gmail',
+    secure: true,
     auth: {
       user: 'martin.lednar03@gmail.com',
       pass: 'martinjessina1122',
