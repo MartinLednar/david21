@@ -684,6 +684,40 @@ main {
   flex-direction: column;
   width: 70%;
   min-width: 350px;
+  font-size: 2rem;
+}
+
+.input-group-box {
+  font-family: inherit;
+  font-size: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 1rem;
+}
+
+.input-group {
+  font-family: inherit;
+  font-size: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-group:first-child {
+  margin-right: 2rem;
+}
+
+.radio-label {
+  transition: all 0.5s;
+}
+
+.radio-btn {
+  margin-right: 1rem;
+}
+
+.radio-btn:checked + label {
+  color: var(--green);
 }
 
 .contact-mail {

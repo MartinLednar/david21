@@ -19,6 +19,15 @@ const publicBeatsSchema = new mongoose.Schema({
     type: String,
     default: 'public',
   },
+  description: {
+    type: String,
+    trim: true,
+  },
+  songNumber: {
+    type: Number,
+    unique: true,
+    required: true,
+  },
   price: {
     type: Number,
     required: true,
@@ -49,6 +58,12 @@ publicBeatsSchema.pre('save', function (next) {
     this.coAuthors = undefined;
   }
   //Setting Name and Co-authors
+
+  ///Description
+  const descriptionLowercase = this.description.toLowerCase();
+  this.description =
+    descriptionLowercase[0].toUpperCase() + descriptionLowercase.slice(1);
+  ///Description
 
   next();
 });

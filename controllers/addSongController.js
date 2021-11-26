@@ -19,7 +19,7 @@ exports.addSong = async (req, res) => {
     req.body.song = {
       file: req.file.buffer,
       mimetype: req.file.mimetype,
-      filename: req.file.originalname,
+      filename: `${req.body.name} - ${req.body.songNumber}.mp3`,
     };
 
     if (req.body?.email && req.body?.password) {

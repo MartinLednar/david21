@@ -58,9 +58,7 @@
                 <%=song.name[0].toUpperCase() + song.name.slice(1)%> in the
                 store
               </h2>
-              <p class="slide-description">
-                Catchy and chilly beat just for you.
-              </p>
+              <p class="slide-description"><%=song.description%></p>
               <a class="btn-main btn-green" href="/shop">Listen now</a>
             </div>
           </div>
@@ -230,6 +228,29 @@
               class="contact-form"
               enctype="multipart/form-data"
             >
+              <div class="input-group-box">
+                <div class="input-group">
+                  <input
+                    type="radio"
+                    name="mail-type"
+                    id="order"
+                    value="order"
+                    class="radio-btn"
+                  />
+                  <label class="radio-label" for="order">Order</label>
+                </div>
+
+                <div class="input-group">
+                  <input
+                    type="radio"
+                    name="mail-type"
+                    class="radio-btn"
+                    id="support"
+                    value="support"
+                  />
+                  <label class="radio-label" for="support">Support</label>
+                </div>
+              </div>
               <input
                 type="email"
                 name="mail"

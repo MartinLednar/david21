@@ -34,21 +34,13 @@ exports.sendEmailInShop = async options => {
 
 exports.sendEmailOrder = async options => {
   //1 Create transporter
-  // const transporter = nodemailer.createTransport({
-  //   host: process.env.EMAIL_HOST,
-  //   port: process.env.EMAIL_PORT,
-  //   secure: false,
-  //   auth: {
-  //     user: process.env.EMAIL_USERNAME,
-  //     pass: process.env.EMAIL_PASSWORD,
-  //   },
-  // });
-
-  var transporter = nodemailer.createTransport({
-    service: 'Gmail',
+  const transporter = nodemailer.createTransport({
+    host: process.env.EMAIL_HOST,
+    port: process.env.EMAIL_PORT,
+    secure: false,
     auth: {
-      user: 'martin.lednar03@gmail.com',
-      pass: 'martinjessina1122',
+      user: process.env.EMAIL_USERNAME,
+      pass: process.env.EMAIL_PASSWORD,
     },
   });
 
@@ -57,17 +49,9 @@ exports.sendEmailOrder = async options => {
   });
 
   //2 Define the email options
-  // const mailOptions = {
-  //   from: options.from,
-  //   to: 'highdavidbeatz@gmail.com',
-  //   subject: 'David21 || Offical - New song order',
-  //   html: data,
-  //   attachments: options.attachments,
-  // };
-
   const mailOptions = {
     from: options.from,
-    to: 'martin.lednar03@gmail.com',
+    to: 'highdavidbeatz@gmail.com',
     subject: 'David21 || Offical - New song order',
     html: data,
     attachments: options.attachments,

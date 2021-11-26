@@ -32,6 +32,11 @@ const customBeatsSchema = new mongoose.Schema({
     type: String,
     default: 'custom',
   },
+  songNumber: {
+    type: Number,
+    unique: true,
+    required: true,
+  },
   price: {
     type: Number,
     required: true,

@@ -7,6 +7,7 @@ const customCheckbox = document.querySelector('.add-check');
 const customInputs = document.querySelector('.custom-inputs-box');
 const passwordBtn = document.querySelector('.btn-custom');
 const passwordInput = document.querySelector('.add-password');
+const descriptionInput = document.querySelector('#add-description');
 const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789abcdefghijklmnopqrstuvwxyz';
 //Add components
 
@@ -35,10 +36,16 @@ customCheckbox.addEventListener('change', function () {
     customMail.setAttribute('required', 'true');
     customPassword.removeAttribute('disabled', 'true');
     customMail.removeAttribute('disabled', 'true');
+
+    //Description
+    descriptionInput.classList.add('unchecked');
   } else {
     customInputs.classList.add('unchecked');
     customPassword.setAttribute('disabled', 'true');
     customMail.setAttribute('disabled', 'true');
+
+    //Description
+    descriptionInput.classList.remove('unchecked');
   }
 });
 
