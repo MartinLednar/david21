@@ -593,7 +593,7 @@ main {
 /*/ ///////////////////////Contact section/////////////////*/
 .section-contact {
   position: relative;
-  height: 80vh;
+  height: 100vh;
   min-height: 800px;
 }
 
