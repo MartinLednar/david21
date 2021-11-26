@@ -8,7 +8,7 @@ const publicSong = require('../models/publicBeatModel');
 
 exports.renderSite = async (req, res) => {
   try {
-    res.status(200).render('add');
+    res.status(200).render('add', { errMessage: false });
   } catch (err) {
     res.redirect('/login');
   }
@@ -43,12 +43,13 @@ exports.addSong = async (req, res) => {
       });
       // //Encrypting password//
 
-      res.status(200).render('add');
+      res.status(200).render('add', { errMessage: false });
     } else {
       await publicSong.create(req.body);
-      res.status(200).render('add');
+
+      res.status(200).render('add', { errMessage: false });
     }
   } catch (err) {
-    console.log(err);
+    res.render('add', { errMessage: true });
   }
 };
