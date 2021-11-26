@@ -43,3 +43,19 @@ customCheckbox.addEventListener('change', function () {
 });
 
 //Showing custom inputs
+
+//Form contact file input//
+const fileInput = document.querySelector('.add-file');
+const errMessage = document.querySelector('.add-err-file');
+
+fileInput.addEventListener('change', function () {
+  const fileSize = (this.files[0].size / 1024 / 1024).toFixed(2);
+
+  if (fileSize > 5) {
+    this.value = null;
+    errMessage.classList.remove('hidden-overlay');
+  } else {
+    errMessage.classList.add('hidden-overlay');
+  }
+});
+//Form contact file input//

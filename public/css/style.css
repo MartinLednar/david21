@@ -434,6 +434,7 @@ main {
 
 .section-heading-upper {
   color: var(--white);
+  -webkit-position: absolute;
   position: absolute;
   left: 2%;
   width: 100%;
@@ -1330,6 +1331,13 @@ main {
 .add-file {
   font-size: 1.5rem;
   margin-bottom: 3rem;
+}
+
+.add-err-file {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: red;
+  font-weight: 300;
 }
 
 /*////////////Add//////////*/
