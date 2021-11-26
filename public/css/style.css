@@ -463,6 +463,13 @@ main {
   margin: 4rem 0;
 }
 
+.add-error-message {
+  text-align: center;
+  color: red;
+  font-size: 2rem;
+  margin: 2rem 0;
+}
+
 /*/ ///////////////////////Section/////////////////*/
 
 /*/ ///////////////////////Section go back btn/////////////////*/
@@ -1280,7 +1287,7 @@ main {
   font-size: 2.5rem;
   display: flex;
   align-items: center;
-  margin: 5rem 0 3rem 0;
+  margin: 3rem 0 3rem 0;
 }
 
 .add-check {

@@ -21,6 +21,10 @@
           Beat Adding <span class="section-heading-upper">Beat Adding</span>
         </h1>
 
+        <%if(errMessage){%>
+        <p class="add-error-message">Something went wrong!</p>
+        <%}%>
+
         <form
           action="/add"
           method="post"
