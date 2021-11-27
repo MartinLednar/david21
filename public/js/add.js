@@ -58,7 +58,7 @@ const errMessage = document.querySelector('.add-err-file');
 fileInput.addEventListener('change', function () {
   const fileSize = (this.files[0].size / 1024 / 1024).toFixed(2);
 
-  if (fileSize > 5) {
+  if (fileSize > 10) {
     this.value = null;
     errMessage.classList.remove('hidden-overlay');
   } else {
