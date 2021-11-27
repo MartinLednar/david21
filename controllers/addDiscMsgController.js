@@ -31,11 +31,12 @@ exports.setNewMessage = async (req, res) => {
         if (!foundItem) {
           discMessage.create(req.body.message);
           res.redirect('/disc-message');
-        } else {
-          foundItem.message = req.body.message;
-          foundItem.save();
-          res.redirect('/disc-message');
         }
+        // else {
+        //   foundItem.message = req.body.message;
+        //   foundItem.save();
+        //   res.redirect('/disc-message');
+        // }
       });
     }
   } catch (error) {
