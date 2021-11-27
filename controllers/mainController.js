@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const PublicSong = require('../models/publicBeatModel');
+const discMessage = require('../models/discountMessageModel');
+
 const email = require('../utils/email');
 
 exports.renderSite = async (req, res) => {
@@ -14,12 +16,15 @@ exports.renderSite = async (req, res) => {
       }, 0);
     }
 
+    const navMessage = (await discMessage.findOne({})).message;
+
     PublicSong.find({}, '-song', (err, songs) => {
       res.render('index', {
         categ: 'public',
         foundItems: songs.slice(-3).reverse(),
         cartItems: req.session.cart,
         priceOverall: priceOverall.toFixed(2),
+        navMessage,
       });
     });
   } catch (err) {

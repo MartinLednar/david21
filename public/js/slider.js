@@ -24,13 +24,31 @@ const errMessage = document.querySelector('.error-big-file');
 fileInput.addEventListener('change', function () {
   const fileSize = (this.files[0].size / 1024 / 1024).toFixed(2);
 
-  if (fileSize > 5) {
+  if (fileSize > 10) {
     this.value = null;
     errMessage.classList.remove('hidden-overlay');
   } else {
     errMessage.classList.add('hidden-overlay');
   }
 });
+//Form contact file input//
+
+//Form contact file input//
+const headerNav = document.querySelector('header');
+const navMessage = document.querySelector('.nav-msg-box');
+const navMessageClose = document.querySelector('.close-nav-msg');
+
+if (!navMessage) {
+  headerNav.style.paddingTop = '2rem';
+} else {
+  navMessageClose.addEventListener('click', function () {
+    navMessage.classList.add('hidden-overlay');
+    headerNav.style.paddingTop = '2rem';
+  });
+}
+
+// padding-top: 2rem;
+
 //Form contact file input//
 
 const slider = function () {

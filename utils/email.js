@@ -22,9 +22,9 @@ exports.sendEmailInShop = async options => {
   //2 Define the email options
   console.log(options);
   const mailOptions = {
-    from: 'David21 || Offical <highdavidbeatz@gmail.com>',
+    from: 'David21 | Offical <highdavidbeatz@gmail.com>',
     to: options.to,
-    subject: 'David21 || Offical - Song order update',
+    subject: 'Song order update',
     html: data,
   };
 
@@ -33,7 +33,7 @@ exports.sendEmailInShop = async options => {
 };
 
 exports.sendEmailOrder = async options => {
-  //1 Create transporter
+  // 1 Create transporter
   const transporter = nodemailer.createTransport({
     host: process.env.EMAIL_HOST,
     port: process.env.EMAIL_PORT,
@@ -51,8 +51,8 @@ exports.sendEmailOrder = async options => {
   //2 Define the email options
   const mailOptions = {
     from: options.from,
-    to: 'highdavidbeatz@gmail.com',
-    subject: 'David21 || Offical - New song order',
+    to: 'David21 | Offical <highdavidbeatz@gmail.com>',
+    subject: 'New song order',
     html: data,
     attachments: options.attachments,
   };
@@ -82,9 +82,9 @@ exports.sendEmailBuy = async options => {
 
   //2 Define the email options
   const mailOptions = {
-    from: 'David21 || Offical <highdavidbeatz@gmail.com>',
+    from: 'David21 | Offical <highdavidbeatz@gmail.com>',
     to: options.to,
-    subject: 'David21 || Offical - Song order update',
+    subject: 'Song order update',
     html: data,
     attachments: options.attachments,
   };
@@ -109,9 +109,9 @@ exports.sendEmailSuccess = async options => {
 
   //2 Define the email options
   const mailOptions = {
-    from: 'David21 || Offical <highdavidbeatz@gmail.com>',
+    from: 'David21 | Offical <highdavidbeatz@gmail.com>',
     to: options.to,
-    subject: 'David21 || Offical - Purchase successful',
+    subject: 'Purchase successful',
     html: data,
     attachments: options.attachments,
   };

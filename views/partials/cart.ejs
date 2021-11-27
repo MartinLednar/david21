@@ -6,7 +6,9 @@
     <h2 class="cart-title">Your Items</h2>
   </div>
   <div class="cart-items-box">
-    <%cartItems.forEach(item => {%>
+    <%if(cartItems.length === 0){%>
+    <p class="cart-empty-msg">Your cart is empty</p>
+    <%}else{%> <%cartItems.forEach(item => {%>
     <div class="item">
       <a href="/cart/delete/<%=item._id%>" class="item-x">
         <svg class="feather x-icon">
@@ -26,7 +28,7 @@
       </div>
     </div>
 
-    <%})%>
+    <%})%> <%}%>
   </div>
   <div class="cart-btn-box">
     <h4 class="cart-overall">Overall : <%=priceOverall%> €</h4>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="shortcut icon" href="/img/logo21SVG.svg" type="image/x-icon" />
+    <title>David21 | Add Discount Message</title>
+  </head>
+
+  <body>
+    <a href="/login" class="btn-back">
+      <svg class="feather back-icon">
+        <use xlink:href="/img/feather-sprite.svg#arrow-left" />
+      </svg>
+    </a>
+
+    <form method="post" action="/disc-message" class="add-message-box">
+      <h1 href="/disc-message" class="beats-heading">
+        Add message
+        <span class="section-heading-upper add-msg-heading">Add message</span>
+      </h1>
+
+      <div class="add-msg-group-box">
+        <input
+          type="checkbox"
+          id="noMessage"
+          name="noMessage"
+          value="undefined"
+        />
+        <label class="add-label" for="noMessage">No message</label>
+      </div>
+
+      <input
+        type="text"
+        name="message"
+        required
+        class="section-input add-msg-input"
+        placeholder="New message"
+      />
+
+      <button type="submit" class="btn-green add-msg-submit-btn">Submit</button>
+      <%if(currMessage){%>
+      <p class="add-msg-curr-msg">Current message : <%=currMessage%></p>
+      <%}%>
+    </form>
+
+    <script src="/js/addDiscMessage.js"></script>
+  </body>
+</html>

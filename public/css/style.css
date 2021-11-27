@@ -72,6 +72,42 @@ body {
 }
 /*////////////////////////Components/////////////////*/
 
+/*////////////////////////Nav message/////////////////*/
+.nav-msg-box {
+  padding: 0.5rem 1rem;
+  background-color: #1db954;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-msg {
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+  width: max-content;
+  flex-grow: 1;
+}
+
+.close-nav-msg {
+  cursor: pointer;
+  color: var(--white);
+  margin-left: 2rem;
+  display: flex;
+  transition: all 0.5s;
+}
+
+.close-nav-msg:hover {
+  color: red;
+}
+
+.nav-msg-icon {
+  width: 3rem;
+  height: 3rem;
+}
+
+/*////////////////////////Nav message/////////////////*/
+
 /*////////////////////////Header/////////////////*/
 
 header {
@@ -79,7 +115,6 @@ header {
   top: 0;
   right: 0;
   left: 0;
-  padding-top: 2rem;
   width: 100%;
   height: 9rem;
   display: flex;
@@ -1621,6 +1656,11 @@ main {
   overflow-y: auto;
   padding: 0 5rem;
 }
+
+.cart-empty-msg {
+  color: var(--white);
+  font-size: 2rem;
+}
 /*////////////Cart//////////*/
 
 /*/////////// Mobile nav////////// */
@@ -1748,6 +1788,55 @@ main {
 }
 
 /*//////////////// Beat Password form //////////////*/
+
+/*//////////////// Add discount message page //////////////*/
+.add-message-box {
+  position: absolute;
+  max-width: min-content;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 2rem;
+  color: var(--white);
+  overflow: hidden;
+}
+.add-msg-heading {
+  left: 1%;
+}
+
+.add-msg-group-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 4rem 0 2rem;
+}
+
+.add-label {
+  margin-left: 1rem;
+}
+
+.add-msg-input {
+  margin-bottom: 2rem;
+  transition: all 0.5s;
+}
+
+.add-msg-submit-btn {
+  background-color: transparent;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 2rem;
+}
+
+.add-msg-curr-msg {
+  margin-top: 1.5rem;
+  max-width: 100%;
+  text-align: center;
+  line-height: 1.5;
+}
+/*//////////////// Add discount message page //////////////*/
 
 /*//////////////// Admin menu //////////////*/
 .menu-wrapper {

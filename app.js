@@ -14,6 +14,7 @@ const sendSongRouter = require(__dirname + '/routes/sendSongRoutes');
 const notFoundRouter = require(__dirname + '/routes/notFoundRoutes');
 const addToCartRouter = require(__dirname + '/routes/addToCartRoutes');
 const payRouter = require(__dirname + '/routes/payRoutes');
+const discMsgRouter = require(__dirname + '/routes/addDiscMsgRoutes');
 
 const paymentSuccessRouter = require(__dirname +
   '/routes/paymentSuccessRoutes');
@@ -86,6 +87,7 @@ app.use('/shop', shopRouter);
 app.use('/songs', sendSongRouter);
 app.use('/pay', payRouter);
 app.use('/payment-success', paymentSuccessRouter);
+app.use('/disc-message', discMsgRouter);
 app.use('/pay-mail', payMailRouter);
 
 app.use('*', notFoundRouter);
