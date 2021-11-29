@@ -1484,7 +1484,7 @@ main {
 .cart-content {
   height: 100vh;
   min-height: 600px;
-  width: 35%;
+  width: 30%;
   min-width: max-content;
   position: fixed;
   right: 0;
