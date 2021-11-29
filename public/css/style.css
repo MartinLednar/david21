@@ -104,6 +104,10 @@ body {
 .nav-msg-icon {
   width: 3rem;
   height: 3rem;
+  position: absolute;
+  display: flex;
+  right: 2rem;
+  top: 0;
 }
 
 /*////////////////////////Nav message/////////////////*/
@@ -677,6 +681,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 50%;
 }
 
 .instructions-heading {
@@ -692,6 +697,8 @@ main {
   margin-top: 1rem;
   list-style: none;
   font-size: 2rem;
+  max-width: 80%;
+  margin: 1rem auto 0;
 }
 
 .item-bullet {
@@ -1477,7 +1484,7 @@ main {
 .cart-content {
   height: 100vh;
   min-height: 600px;
-  width: 30%;
+  width: 35%;
   min-width: max-content;
   position: fixed;
   right: 0;
@@ -1658,6 +1665,10 @@ main {
 }
 
 .cart-empty-msg {
+  opacity: 30%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%);
   color: var(--white);
   font-size: 2rem;
 }
