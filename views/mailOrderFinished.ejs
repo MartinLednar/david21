@@ -4,81 +4,99 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&display=swap');
-
-      body {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-size: 62.5%;
-        font-family: 'Montserrat', sans-serif;
-        background-color: #121212;
-      }
-      .content-wrapper {
-        width: 100%;
-        height: 100vh;
-        min-height: 700px;
-      }
-
-      .mail-heading {
-        display: block;
-        text-align: center;
-        color: white;
-        font-size: 2.5rem;
-        font-weight: 600;
-        margin-bottom: 2rem;
-        padding: 0 2rem;
-      }
-
-      .mail-code {
-        text-align: center;
-        color: white;
-        font-weight: 500;
-        font-size: 2.3rem;
-      }
-
-      .code {
-        width: 50%;
-        display: block;
-        background-color: rgb(41, 41, 41);
-        padding: 2rem 1.3rem;
-        text-align: center;
-        margin: 1rem auto 0;
-        font-size: 2rem;
-      }
-
-      .mail-btn {
-        text-decoration: none;
-        display: block;
-        color: #1db954;
-        border: 1px solid var(--green);
-        font-size: 1.5rem;
-        text-align: center;
-        padding: 1.5rem 2rem;
-      }
-
-      .mail-logo {
-        display: block;
-        text-align: left;
-        padding-left: 5%;
-        text-decoration: line-through;
-        color: white;
-        font-size: 3rem;
-        font-weight: 300;
-      }
-    </style>
   </head>
-  <body>
-    <div class="content-wrapper">
-      <h1 class="mail-logo">21</h1>
-      <h1 class="mail-heading">The song you have ordered is in the shop!</h1>
-      <p class="mail-code">
+  <body
+    style="
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-size: 62.5%;
+      background-color: #121212;
+      font-family: 'Montserrat', sans-serif;
+    "
+  >
+    <div
+      class="content-wrapper"
+      style="width: 100%; height: 100vh; min-height: 700px"
+    >
+      <h1
+        class="mail-logo"
+        style="
+          display: block;
+          text-align: left;
+          padding-left: 5%;
+          text-decoration: line-through;
+          color: white;
+          font-size: 3rem;
+          font-weight: 300;
+        "
+      >
+        <img
+          src="https://david-21.herokuapp.com/img/logo21.png"
+          alt="david 21 logo"
+          style="
+            position: absolute;
+            padding-top: 3rem;
+            top: 2rem;
+            left: 2rem;
+            width: 3rem;
+            height: 3rem;
+          "
+        />
+      </h1>
+      <h1
+        class="mail-heading"
+        style="
+          display: block;
+          text-align: center;
+          color: white;
+          font-size: 2.5rem;
+          font-weight: 600;
+          margin-bottom: 2rem;
+          padding: 0 2rem;
+        "
+      >
+        The song you have ordered is in the shop!
+      </h1>
+      <p
+        class="mail-code"
+        style="
+          text-align: center;
+          color: white;
+          font-weight: 500;
+          font-size: 2.3rem;
+        "
+      >
         Here is your code :
-        <span class="code"><%=code%></span>
+        <span
+          class="code"
+          style="
+            width: 50%;
+            display: block;
+            background-color: rgb(41, 41, 41);
+            padding: 2rem 1.3rem;
+            text-align: center;
+            margin: 1rem auto 0;
+            font-size: 2rem;
+          "
+          ><%=code%></span
+        >
       </p>
 
-      <a href="localhost:5000/shop/ordered" class="mail-btn">Go to website</a>
+      <a
+        href="https://david-21.herokuapp.com/shop/ordered"
+        class="mail-btn"
+        style="
+          text-decoration: none;
+          display: block;
+          color: #1db954;
+          border: 1px solid var(--green);
+          font-size: 1.5rem;
+          text-align: center;
+          padding: 1.5rem 2rem;
+        "
+        >Go to website</a
+      >
     </div>
   </body>
 </html>
