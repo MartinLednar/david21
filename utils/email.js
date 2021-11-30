@@ -2,7 +2,7 @@ const nodemailer = require('nodemailer');
 const ejs = require('ejs');
 
 //1 Create transporter
-if (!process.env.NODE_ENV) {
+if (process.env.NODE_ENV) {
   const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 465,
@@ -58,6 +58,7 @@ exports.sendEmailInShop = async options => {
 exports.sendEmailOrder = async options => {
   const data = await ejs.renderFile(process.cwd() + '/views/mailOrder.ejs', {
     message: options.message,
+    client: options.from,
   });
 
   //2 Define the email options
