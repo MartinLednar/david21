@@ -33,6 +33,7 @@ const transporter = nodemailer.createTransport({
     expires: 1484314697598,
   },
 });
+///////
 
 exports.sendEmailInShop = async options => {
   const data = await ejs.renderFile(
