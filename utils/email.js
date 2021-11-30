@@ -34,13 +34,28 @@ exports.sendEmailInShop = async options => {
 
 exports.sendEmailOrder = async options => {
   // 1 Create transporter
+  // const transporter = nodemailer.createTransport({
+  //   host: process.env.EMAIL_HOST,
+  //   port: process.env.EMAIL_PORT,
+  //   secure: false,
+  //   auth: {
+  //     user: process.env.EMAIL_USERNAME,
+  //     pass: process.env.EMAIL_PASSWORD,
+  //   },
+  // });
+
   const transporter = nodemailer.createTransport({
-    host: process.env.EMAIL_HOST,
-    port: process.env.EMAIL_PORT,
-    secure: false,
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
     auth: {
-      user: process.env.EMAIL_USERNAME,
-      pass: process.env.EMAIL_PASSWORD,
+      type: 'OAuth2',
+      user: 'martin.lednar03@gmail.com',
+      clientId: process.env.CLIENT_ID,
+      clientSecret: process.env.CLIENT_SECRET,
+      refreshToken: process.env.REFRESH_TOKEN,
+      accessToken: process.env.ACCESS_TOKEN,
+      expires: 1484314697598,
     },
   });
 
@@ -50,12 +65,20 @@ exports.sendEmailOrder = async options => {
 
   //2 Define the email options
   const mailOptions = {
-    from: options.from,
-    to: 'David21 | Offical <highdavidbeatz@gmail.com>',
+    from: 'martin.lednar03@gmail.com',
+    to: 'martinlednar1122@gmail.com',
     subject: 'New song order',
     html: data,
     attachments: options.attachments,
   };
+
+  // const mailOptions = {
+  //   from: options.from,
+  //   to: 'David21 | Offical <highdavidbeatz@gmail.com>',
+  //   subject: 'New song order',
+  //   html: data,
+  //   attachments: options.attachments,
+  // };
 
   //3 Send email
   await transporter.sendMail(mailOptions);
