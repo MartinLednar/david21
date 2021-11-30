@@ -2,14 +2,14 @@ const nodemailer = require('nodemailer');
 const ejs = require('ejs');
 
 //1 Create transporter
-if (process.env.NODE_ENV) {
+if (!process.env.NODE_ENV) {
   const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 465,
     secure: true,
     auth: {
       type: 'OAuth2',
-      user: 'store.beatsby21@gmail.com',
+      user: process.env.CLIENT_EMAIL_PROD,
       clientId: process.env.CLIENT_ID_PROD,
       clientSecret: process.env.CLIENT_SECRET_PROD,
       refreshToken: process.env.REFRESH_TOKEN_PROD,
@@ -25,7 +25,7 @@ const transporter = nodemailer.createTransport({
   secure: true,
   auth: {
     type: 'OAuth2',
-    user: 'martin.lednar03@gmail.com',
+    user: process.env.CLIENT_EMAIL,
     clientId: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
     refreshToken: process.env.REFRESH_TOKEN,
@@ -45,9 +45,7 @@ exports.sendEmailInShop = async options => {
   //2 Define the email options
   console.log(options);
   const mailOptions = {
-    from: process.env.NODE_ENV
-      ? 'store.beatsby21@gmail.com'
-      : 'martin.lednar03@gmail.com',
+    from: process.env.CLIENT_EMAIL || process.env.CLIENT_EMAIL_PROD,
     to: options.to,
     subject: 'David21 | Offical - Song order update',
     html: data,
@@ -64,35 +62,9 @@ exports.sendEmailOrder = async options => {
 
   //2 Define the email options
   const mailOptions = {
-    from: process.env.NODE_ENV
-      ? 'store.beatsby21@gmail.com'
-      : 'martin.lednar03@gmail.com',
-    to: options.to,
+    from: process.env.CLIENT_EMAIL || process.env.CLIENT_EMAIL_PROD,
+    to: process.env.CLIENT_EMAIL || process.env.CLIENT_EMAIL_PROD,
     subject: 'David21 | Offical - New song order',
-    html: data,
-    attachments: options.attachments,
-  };
-
-  //3 Send email
-  await transporter.sendMail(mailOptions);
-};
-
-exports.sendEmailBuy = async options => {
-  const data = await ejs.renderFile(
-    process.cwd() + '/views/mailOrderFinished.ejs',
-    {
-      code: options.code,
-    }
-  );
-
-  //2 Define the email options
-  const mailOptions = {
-    from: process.env.NODE_ENV
-      ? 'store.beatsby21@gmail.com'
-      : 'martin.lednar03@gmail.com',
-
-    to: options.to,
-    subject: 'David21 | Offical - Song order update',
     html: data,
     attachments: options.attachments,
   };
@@ -106,10 +78,7 @@ exports.sendEmailSuccess = async options => {
 
   //2 Define the email options
   const mailOptions = {
-    from: process.env.NODE_ENV
-      ? 'store.beatsby21@gmail.com'
-      : 'martin.lednar03@gmail.com',
-
+    from: process.env.CLIENT_EMAIL || process.env.CLIENT_EMAIL_PROD,
     to: options.to,
     subject: 'David21 | Offical - Purchase successful',
     html: data,
