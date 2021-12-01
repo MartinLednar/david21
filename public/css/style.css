@@ -475,6 +475,7 @@ main {
   color: var(--white);
   -webkit-position: absolute;
   position: absolute;
+  top: 0;
   left: 2%;
   width: 100%;
   font-size: inherit;
