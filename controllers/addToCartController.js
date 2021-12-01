@@ -9,12 +9,11 @@ exports.publicToCart = async (req, res) => {
     if (req.session.cart.length === 0) {
       PublicSong.findById(id, '-song', function (err, song) {
         if (err || !song) {
-          req.session.cart = [];
-          return res.redirect('/');
+          return res.redirect(req.header('Referer'));
+        } else {
+          req.session.cart.push(song);
+          res.redirect(req.header('Referer'));
         }
-
-        req.session.cart.push(song);
-        res.redirect('/shop');
       });
     } else {
       const itemExists = req.session.cart.every(song => {
@@ -22,21 +21,20 @@ exports.publicToCart = async (req, res) => {
       });
 
       if (!itemExists) {
-        res.redirect('/shop');
+        res.redirect(req.header('Referer'));
       } else {
         PublicSong.findById(id, '-song', function (err, song) {
           if (err || !song) {
-            req.session.cart = [];
             return res.redirect('/');
           }
 
           req.session.cart.push(song);
-          res.redirect('/shop');
+          res.redirect(req.header('Referer'));
         });
       }
     }
   } catch (err) {
-    res.redirect('/');
+    res.redirect(req.header('Referer'));
   }
 };
 
@@ -46,27 +44,28 @@ exports.orderedToCart = async (req, res) => {
     CustomSong.findById(clickedSong, '-song', function (err, song) {
       if (err || !song) {
         req.session.cart = [];
-        return res.redirect('/');
-      }
-      bcrypt.compare(formPassword.trim(), song.password, (err, result) => {
-        if (result) {
-          const itemExists = req.session.cart.every(song => {
-            return song._id !== clickedSong;
-          });
-          if (!itemExists) {
-            res.redirect('/shop/ordered');
+        return res.redirect(req.header('Referer'));
+      } else {
+        bcrypt.compare(formPassword.trim(), song.password, (err, result) => {
+          if (result) {
+            const itemExists = req.session.cart.every(song => {
+              return song._id !== clickedSong;
+            });
+            if (!itemExists) {
+              res.redirect(req.header('Referer'));
+            } else {
+              song.password = undefined;
+              req.session.cart.push(song);
+              res.redirect(req.header('Referer'));
+            }
           } else {
-            song.password = undefined;
-            req.session.cart.push(song);
-            res.redirect('/shop/ordered');
+            res.redirect(req.header('Referer'));
           }
-        } else {
-          res.redirect('/shop/ordered');
-        }
-      });
+        });
+      }
     });
   } catch (err) {
-    res.redirect('/');
+    res.redirect(req.header('Referer'));
   }
 };
 
@@ -74,9 +73,8 @@ exports.deleteFromCart = async (req, res) => {
   try {
     const id = req.params.id;
     req.session.cart = req.session.cart.filter(el => el._id !== id);
-    res.redirect('/shop');
+    res.redirect(req.header('Referer'));
   } catch (err) {
-    req.session.cart = [];
     res.redirect('/');
   }
 };
