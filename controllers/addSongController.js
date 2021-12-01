@@ -34,9 +34,13 @@ exports.addSong = async (req, res) => {
       bcrypt.genSalt(saltRounds, async function (err, salt) {
         if (!err) {
           bcrypt.hash(req.body.password, salt, async function (err, hash) {
-            if (!err) {
-              req.body.password = hash;
-              await customSong.create(req.body);
+            try {
+              if (!err) {
+                req.body.password = hash;
+                await customSong.create(req.body);
+              }
+            } catch (err) {
+              res.render('add', { errMessage: true });
             }
           });
         }

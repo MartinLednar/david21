@@ -73,3 +73,21 @@ exports.sendEmailSuccess = async options => {
   //3 Send email
   await transporter.sendMail(mailOptions);
 };
+
+exports.sendEmailSuccessAuthor = async options => {
+  const data = await ejs.renderFile(
+    process.cwd() + '/views/mailBoughtToDavid.ejs',
+    { client: options.client, items: options.items }
+  );
+
+  //2 Define the email options
+  const mailOptions = {
+    from: process.env.CLIENT_EMAIL || process.env.CLIENT_EMAIL_PROD,
+    to: process.env.CLIENT_EMAIL || process.env.CLIENT_EMAIL_PROD,
+    subject: 'David21 | Offical - New purchase',
+    html: data,
+  };
+
+  //3 Send email
+  await transporter.sendMail(mailOptions);
+};

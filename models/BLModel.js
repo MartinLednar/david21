@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
 const blackListSchema = new mongoose.Schema({
-  blackList: { type: Array, default: [] },
+  blackList: [String],
 });
 
 const blackList = mongoose.model('blackList', blackListSchema);
 
-module.exports = blacklist;
+module.exports = blackList;

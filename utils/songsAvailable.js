@@ -23,8 +23,6 @@ exports.songsAvailable = async (req, res, next) => {
 
     availableSongs.push(...foundPublicSongs);
     availableSongs.push(...foundOrderedSongs);
-
-    req.session.cart = [...availableSongs];
   }
 
   if (publicSongs.length !== 0 && orderedSongs.length === 0) {
@@ -33,8 +31,6 @@ exports.songsAvailable = async (req, res, next) => {
     ).filter(song => song);
 
     availableSongs.push(...foundPublicSongs);
-
-    req.session.cart = [...availableSongs];
   }
 
   if (publicSongs.length === 0 && orderedSongs.length !== 0) {
@@ -43,9 +39,12 @@ exports.songsAvailable = async (req, res, next) => {
     ).filter(song => song);
 
     availableSongs.push(...foundOrderedSongs);
-
-    req.session.cart = [...availableSongs];
   }
 
-  next();
+  if (cart.length === availableSongs.length) {
+    next();
+  } else {
+    req.session.cart = [...availableSongs];
+    res.redirect('/');
+  }
 };

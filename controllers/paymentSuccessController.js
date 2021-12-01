@@ -63,6 +63,11 @@ exports.handlePayment = async (req, res) => {
         attachments: [...songsFiles],
       });
 
+      email.sendEmailSuccessAuthor({
+        client: req.session.buyEmail,
+        items: [...songsFiles.map(item => item.filename)],
+      });
+
       req.session.cart = null;
       return res.render('success', { buyEmail: req.session.buyEmail });
     }
@@ -94,6 +99,11 @@ exports.handlePayment = async (req, res) => {
         attachments: [...songsFiles],
       });
 
+      email.sendEmailSuccessAuthor({
+        client: req.session.buyEmail,
+        items: [...songsFiles.map(item => item.filename)],
+      });
+
       req.session.cart = null;
       return res.render('success', { buyEmail: req.session.buyEmail });
     }
@@ -123,6 +133,11 @@ exports.handlePayment = async (req, res) => {
       email.sendEmailSuccess({
         to: req.session.buyEmail,
         attachments: [...songsFiles],
+      });
+
+      email.sendEmailSuccessAuthor({
+        client: req.session.buyEmail,
+        items: [...songsFiles.map(item => item.filename)],
       });
 
       req.session.cart = null;
