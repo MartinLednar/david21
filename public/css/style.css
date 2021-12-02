@@ -440,7 +440,7 @@ main {
 }
 
 .section-text {
-  font-size: 2.5rem;
+  font-size: 2.3rem;
   line-height: 1.5;
   margin-top: 3rem;
 }
@@ -537,7 +537,8 @@ main {
 /*/ ///////////////////////Beats section/////////////////*/
 
 .section-beats {
-  height: max-content;
+  height: 80vh;
+  min-height: max-content;
   padding-top: 10rem;
   width: 90%;
   margin: 0 auto;
@@ -556,6 +557,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .songs-box-main {
@@ -578,7 +580,6 @@ main {
 .section-about {
   height: 80vh;
   min-height: 800px;
-
   color: var(--white);
 }
 .section-content-box {
@@ -595,7 +596,7 @@ main {
 
 .ab-img {
   height: auto;
-  width: 35rem;
+  width: 39rem;
   box-shadow: 0 0 20px 10px #1db9547a;
   transition: all 0.5s;
 }
@@ -633,7 +634,7 @@ main {
 /*/ ///////////////////////Contact section/////////////////*/
 .section-contact {
   position: relative;
-  height: 100vh;
+  height: 80vh;
   min-height: 800px;
 }
 
@@ -783,6 +784,7 @@ main {
   align-items: center;
   background-color: var(--lighter);
   padding: 20px 20px 20px;
+  margin-top: 20vh;
 }
 
 .footer-content-box {
@@ -2075,7 +2077,12 @@ main {
     grid-template-columns: max-content max-content;
     grid-template-rows: max-content max-content max-content;
     row-gap: 30px;
-    width: 35rem;
+    width: 80%;
+    justify-content: space-between;
+  }
+
+  .beat-btn-box {
+    justify-content: flex-start;
   }
 
   .time-wrapper {
