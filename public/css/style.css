@@ -537,8 +537,7 @@ main {
 /*/ ///////////////////////Beats section/////////////////*/
 
 .section-beats {
-  height: 80vh;
-  min-height: 800px;
+  min-height: max-content;
   padding-top: 10rem;
   width: 90%;
   margin: 0 auto;
