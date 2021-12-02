@@ -578,8 +578,8 @@ main {
 /*/ ///////////////////////About section/////////////////*/
 
 .section-about {
-  height: 70vh;
-  min-height: 750px;
+  height: 80vh;
+  min-height: 800px;
   color: var(--white);
 }
 .section-content-box {
@@ -633,8 +633,8 @@ main {
 
 /*/ ///////////////////////Contact section/////////////////*/
 .section-contact {
-  height: 70vh;
-  min-height: 750px;
+  height: 80vh;
+  min-height: 800px;
 }
 
 .contact-link {
