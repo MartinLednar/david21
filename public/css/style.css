@@ -1455,10 +1455,11 @@ main + .footer {
 .not-found-box {
   display: flex;
   flex-direction: column;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  min-height: 800px;
+  padding: 0 2rem;
 }
 
 .notFound-heading {
@@ -2287,6 +2288,10 @@ main + .footer {
   .btn-main {
     font-size: 2rem;
   }
+
+  .nf-heading {
+    font-size: calc(3vw + 2.5rem);
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -2432,6 +2437,10 @@ main + .footer {
   .add-buy-mail-form {
     width: 100%;
     min-width: 100%;
+  }
+
+  .add-buy-email-wrapper {
+    padding: 0 2rem;
   }
 }
 
