@@ -730,7 +730,14 @@ main {
   cursor: pointer;
 }
 
-.close-overlay:hover {
+.close-overlay-icon {
+  color: white;
+  width: 3.5rem;
+  height: 3.5rem;
+  transition: all 0.5s;
+}
+
+.close-overlay:hover .close-overlay-icon {
   color: red;
 }
 
@@ -1600,15 +1607,15 @@ main + .footer {
   cursor: pointer;
 }
 
-.item-x:hover .x-icon {
-  color: red;
-}
-
 .x-icon {
   color: white;
   width: 3.5rem;
   height: 3.5rem;
   transition: all 0.5s;
+}
+
+.item-x:hover .x-icon {
+  color: red;
 }
 
 .item-content {
@@ -1750,7 +1757,7 @@ main + .footer {
   display: flex;
   flex-direction: column;
   background-color: var(--light);
-  padding: 5rem 5rem;
+  padding: 6rem 5rem 5rem;
   position: relative;
 }
 
@@ -1775,9 +1782,20 @@ main + .footer {
 
 .ordered-x {
   position: absolute;
-  top: 5px;
+  top: 10px;
   right: 20px;
   cursor: pointer;
+}
+
+.shop-x-icon {
+  color: white;
+  width: 3.5rem;
+  height: 3.5rem;
+  transition: all 0.5s;
+}
+
+.ordered-x:hover .shop-x-icon {
+  color: red;
 }
 
 .ordered-x span {
@@ -2379,6 +2397,11 @@ main + .footer {
     width: 90%;
     margin: 0 auto 3rem;
   }
+
+  .cart-empty-msg {
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 @media screen and (max-width: 370px) {
@@ -2410,11 +2433,6 @@ main + .footer {
 
   .beat-info {
     padding-left: 0rem;
-  }
-
-  .cart-empty-msg {
-    left: 50%;
-    transform: translate(-50%, -50%);
   }
 }
 

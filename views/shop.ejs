@@ -208,9 +208,11 @@
                 
                 <form action="/cart/ordered" method="POST" class="ordered-form">
                   <div class="ordered-x">
-                    <span>x</span>
+                    <span><svg class="feather shop-x-icon">
+                      <use xlink:href="/img/feather-sprite.svg#x" /></svg
+                  ></span>
                   </div>
-                  <h2>Use password from mail to add to cart</h2>
+                  <h2>Use password from your mail to add to cart</h2>
                   <input id="idInput" type="hidden" name="clickedSong">
                   <input type="text" class="section-input" name="formPassword">
                   <button type="submit" class="btn-green">Submit</button>
