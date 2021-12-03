@@ -2428,6 +2428,11 @@ main + .footer {
     left: 50%;
     transform: translate(-50%, -50%);
   }
+
+  .add-buy-mail-form {
+    width: 100%;
+    min-width: 100%;
+  }
 }
 
 @media screen and (max-width: 370px) {
