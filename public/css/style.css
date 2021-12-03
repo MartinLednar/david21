@@ -494,6 +494,7 @@ main {
   background-color: transparent;
   border: none;
   border-bottom: 1px solid var(--white);
+  border-radius: 0;
   outline: none;
   padding: 1rem 1rem;
   font-size: 2rem;
@@ -1276,6 +1277,7 @@ main + .footer {
 
 .login-form input {
   margin-bottom: 5rem;
+  border-radius: 0;
 }
 
 .login-form button {
@@ -1283,6 +1285,7 @@ main + .footer {
   background-color: transparent;
   font-size: 2rem;
   cursor: pointer;
+  border-radius: 0;
   margin-bottom: 4rem;
 }
 
@@ -1339,6 +1342,7 @@ main + .footer {
 
 .custom-password-box .add-input {
   flex-basis: 60%;
+  border-radius: 0;
 }
 
 .btn-custom {
@@ -1374,6 +1378,7 @@ main + .footer {
   color: #ffff;
   background-color: transparent;
   font-weight: 300;
+  border-radius: 0;
   margin-bottom: 5rem;
   border: none;
   border-bottom: 1px solid var(--white);
@@ -1766,10 +1771,12 @@ main + .footer {
   font-weight: 500;
   color: var(--white);
   margin-bottom: 3rem;
+  text-align: center;
 }
 
 .ordered-form .section-input {
   margin-bottom: 2.5rem;
+  border-radius: 0;
   font-size: 1.8rem;
 }
 
@@ -1842,6 +1849,7 @@ main + .footer {
 
 .add-msg-input {
   margin-bottom: 2rem;
+  border-radius: 0;
   transition: all 0.5s;
 }
 
@@ -2068,6 +2076,12 @@ main + .footer {
 /* maily */
 
 /*////////////Queries/////////*/
+
+@media screen and (max-width: 1380px) {
+  .ab-img {
+    width: 30rem;
+  }
+}
 @media screen and (max-width: 1230px) {
   .slide h1 {
     font-size: 30rem;
@@ -2166,6 +2180,10 @@ main + .footer {
   .footer-nav .nav-item {
     margin-right: 0;
     margin-bottom: 2rem;
+  }
+
+  .footer-socials .footer-link:not(:last-child) {
+    margin-bottom: 1rem;
   }
 
   .footer-link:not(:last-child) {
