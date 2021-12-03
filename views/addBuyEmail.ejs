@@ -34,27 +34,27 @@
         <button type="submit" class="btn-green add-buy-email-btn">
           Submit
         </button>
+
+        <%if(addedEmail){%>
+        <p class="add-email-curr-email">Current email : <%=addedEmail%></p>
+        <%}%>
+
+        <div class="add-email-links-box">
+          <a href="/" class="add-email-continue add-email-link-left">
+            <svg class="feather email-icon">
+              <use xlink:href="./img/feather-sprite.svg#chevron-left" />
+            </svg>
+            Continue shopping
+          </a>
+
+          <a href="/pay" class="add-email-continue">
+            Continue to payment
+            <svg class="feather email-icon">
+              <use xlink:href="./img/feather-sprite.svg#chevron-right" />
+            </svg>
+          </a>
+        </div>
       </form>
-
-      <%if(addedEmail){%>
-      <p class="add-email-curr-email">Current email : <%=addedEmail%></p>
-      <%}%>
-
-      <div class="add-email-links-box">
-        <a href="/" class="add-email-continue add-email-link-left">
-          <svg class="feather email-icon">
-            <use xlink:href="./img/feather-sprite.svg#chevron-left" />
-          </svg>
-          Continue shopping
-        </a>
-
-        <a href="/pay" class="add-email-continue">
-          Continue to payment
-          <svg class="feather email-icon">
-            <use xlink:href="./img/feather-sprite.svg#chevron-right" />
-          </svg>
-        </a>
-      </div>
     </div>
   </body>
 </html>

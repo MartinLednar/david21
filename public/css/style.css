@@ -1901,10 +1901,13 @@ main + .footer {
 
 /*//////////////// Add buy-email page //////////////*/
 .add-buy-email-wrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  min-height: 800px;
+  padding: 0 3rem;
 }
 
 .add-buy-mail-form {
@@ -1929,7 +1932,7 @@ main + .footer {
 }
 
 #add-email-hm {
-  font-size: 5rem;
+  font-size: calc(3vw + 1rem);
 }
 
 #add-email-hs {
