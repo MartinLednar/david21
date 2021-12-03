@@ -70,7 +70,7 @@ body {
   background-color: var(--green);
   border-color: var(--green);
 }
-/*////////////////////////Components/////////////////*/
+/*/ ///////////////////////Components/////////////////*/
 
 /*////////////////////////Nav message/////////////////*/
 .nav-msg-box {
@@ -110,7 +110,7 @@ body {
   top: 0;
 }
 
-/*////////////////////////Nav message/////////////////*/
+/*/ ///////////////////////Nav message/////////////////*/
 
 /*////////////////////////Header/////////////////*/
 
@@ -129,10 +129,18 @@ header {
 header.sticky {
   position: fixed;
   background-color: #121212ef;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   padding-top: 0;
   z-index: 900;
+}
+
+header.sticky .logo-container {
+  padding-left: 5%;
+}
+
+header.sticky .cart {
+  padding-right: 5%;
 }
 
 .logo-container {
@@ -293,7 +301,7 @@ nav ul {
   position: relative;
   width: 90%;
   height: 100vh;
-  min-height: 750px;
+  min-height: 700px;
   display: flex;
   flex-direction: column;
   margin: auto;
@@ -1237,7 +1245,7 @@ main + .footer {
 
 /*////////////Beats separate//////////*/
 
-/*////////////Login//////////*/
+/*/ ///////////Login//////////*/
 .login-container {
   width: 100%;
   height: 100vh;
@@ -1295,7 +1303,7 @@ main + .footer {
 
 /*////////////Login//////////*/
 
-/*////////////Add//////////*/
+/*/ ///////////Add//////////*/
 .add-wrapper {
   width: 100%;
   min-height: 800px;
@@ -1418,7 +1426,7 @@ main + .footer {
 
 /*////////////Add//////////*/
 
-/*////////////Delete beats//////////*/
+/*/ ///////////Delete beats//////////*/
 .delete-container {
   height: 100vh;
   min-height: 600px;
@@ -1451,7 +1459,7 @@ main + .footer {
 }
 /*////////////Delete beats//////////*/
 
-/*////////////Not found page//////////*/
+/*/ ///////////Not found page//////////*/
 .not-found-box {
   display: flex;
   flex-direction: column;
@@ -1479,7 +1487,7 @@ main + .footer {
 }
 /*////////////Not found page//////////*/
 
-/*////////////Cart//////////*/
+/*/ ///////////Cart//////////*/
 
 .cart-content {
   height: 100vh;
@@ -1675,7 +1683,7 @@ main + .footer {
 }
 /*////////////Cart//////////*/
 
-/*/////////// Mobile nav////////// */
+/*/ ////////// Mobile nav////////// */
 
 .mobile-nav-box {
   height: 100vh;
@@ -1740,7 +1748,7 @@ main + .footer {
 }
 /*//////////////// Mobile nav //////////////*/
 
-/*//////////////// Beat Password form //////////////*/
+/*/ /////////////// Beat Password form //////////////*/
 .ordered-form-wrapper {
   position: absolute;
   top: 0;
@@ -1819,7 +1827,7 @@ main + .footer {
 
 /*//////////////// Beat Password form //////////////*/
 
-/*//////////////// Add discount message page //////////////*/
+/*/ /////////////// Add discount message page //////////////*/
 .add-message-box {
   position: absolute;
   max-width: min-content;
@@ -1869,7 +1877,7 @@ main + .footer {
 }
 /*//////////////// Add discount message page //////////////*/
 
-/*//////////////// Admin menu //////////////*/
+/*/ /////////////// Admin menu //////////////*/
 .menu-wrapper {
   height: 100vh;
   min-height: 600px;
@@ -1900,7 +1908,7 @@ main + .footer {
 }
 /*//////////////// Admin menu //////////////*/
 
-/*//////////////// Add buy-email page //////////////*/
+/*/ /////////////// Add buy-email page //////////////*/
 .add-buy-email-wrapper {
   display: flex;
   flex-direction: column;
@@ -2002,16 +2010,23 @@ main + .footer {
 
 /*//////////////// Add buy-email page //////////////*/
 
-/*//////////////// Success payment page //////////////*/
+/*/ /////////////// Success payment page //////////////*/
 .success-wrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  min-height: 800px;
+  padding: 0 3rem;
 }
 
-#success-hm {
-  font-size: 5rem;
+.success-inner-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: max-content;
+  font-size: 1.8rem;
 }
 
 #success-hs {
@@ -2019,14 +2034,16 @@ main + .footer {
 }
 
 .success-msg {
+  width: 100%;
+  text-align: center;
   color: var(--white);
-  font-size: 1.8rem;
-  margin-top: 1rem;
+  font-size: 2.3rem;
+  margin-top: 4rem;
   margin-bottom: 4rem;
 }
 
 .success-btn {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
 }
 
 /*//////////////// Success payment page //////////////*/
@@ -2116,6 +2133,11 @@ main + .footer {
   .cart-content {
     width: 55%;
   }
+
+  .success-heading {
+    font-size: calc(3vw + 2.5rem);
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 1120px) {
@@ -2170,10 +2192,6 @@ main + .footer {
 
   .time-wrapper {
     grid-column: 1/3;
-  }
-
-  .section-text {
-    font-size: 2.3rem;
   }
 
   .ab-img {
@@ -2442,6 +2460,13 @@ main + .footer {
   .add-buy-email-wrapper {
     padding: 0 2rem;
   }
+
+  .nf-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 }
 
 @media screen and (max-width: 370px) {
@@ -2493,4 +2518,4 @@ main + .footer {
     font-size: 1.8rem;
   }
 }
-/*////////////Queries//////////*/
+/*/ ///////////Queries//////////*/
