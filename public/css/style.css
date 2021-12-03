@@ -2081,6 +2081,10 @@ main + .footer {
   .ab-img {
     width: 30rem;
   }
+
+  .section-text {
+    font-size: 2rem;
+  }
 }
 @media screen and (max-width: 1230px) {
   .slide h1 {
