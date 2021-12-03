@@ -654,7 +654,7 @@ main {
 }
 
 .contact-link:hover .contact-icon {
-  padding-left: 8px;
+  transform: translateX(4px);
 }
 
 .example-overlay {
@@ -1124,6 +1124,7 @@ main + .footer {
   width: 50%;
   padding: 1rem 1rem;
   font-size: 1.8rem;
+  border-radius: 0;
   font-weight: 400;
   background-color: var(--lighter);
   border: none;
@@ -2381,6 +2382,16 @@ main + .footer {
 
   .beat-info {
     padding-left: 0rem;
+  }
+
+  .cart-items-box {
+    padding: 0;
+    width: 100%;
+  }
+
+  .item {
+    width: 90%;
+    margin: 0 auto 3rem;
   }
 }
 

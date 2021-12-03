@@ -18,7 +18,9 @@
 
       <div class="item-content">
         <div class="item-text">
-          <h3 class="item-heading"><%=item.name%></h3>
+          <h3 class="item-heading">
+            <%=item.name[0].toUpperCase() + item.name.slice(1)%>
+          </h3>
           <h4 class="item-author"><%=item.author%></h4>
           <h5 class="item-coauthors"><%=item.coAuthors.join(' ,')%></h5>
         </div>

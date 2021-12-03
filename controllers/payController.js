@@ -1,4 +1,4 @@
-const stripe = require('stripe')(process.env.STRIPE_TEST_SECRET);
+const stripe = require('stripe')(process.env.STRIPE_TEST_SECRET2);
 
 exports.createCheckoutSession = async (req, res, next) => {
   try {
@@ -25,6 +25,7 @@ exports.createCheckoutSession = async (req, res, next) => {
 
     res.redirect(session.url);
   } catch (err) {
+    console.log(err);
     res.redirect('/');
   }
 };
