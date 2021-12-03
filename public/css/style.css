@@ -1914,7 +1914,8 @@ main + .footer {
   display: flex;
   flex-direction: column;
   font-size: 1.8rem;
-  width: 60%;
+  width: 30%;
+  min-width: 400px;
   margin: 0 auto;
 }
 
@@ -1932,7 +1933,7 @@ main + .footer {
 }
 
 #add-email-hm {
-  font-size: calc(3vw + 1rem);
+  font-size: calc(3vw + 1.5rem);
 }
 
 #add-email-hs {
