@@ -63,24 +63,32 @@ exports.handleBlackListOnSuccess = async (req, res, next) => {
   const cart = req.session.cart;
   const songsIds = cart.map(song => String(song._id));
 
-  BlackList.findOne({}, async (err, item) => {
+  BlackList.findOne({}, async (err, foundItem) => {
     if (cart.length === 0) {
       res.redirect('/');
-    } else if (!item) {
+    } else if (!foundItem) {
       BlackList.create({ blackList: [] });
       res.redirect('/');
     } else {
       const allOnBlackList = songsIds.every(song =>
-        item.blackList.includes(song)
+        foundItem.blackList.includes(song)
       );
 
       if (allOnBlackList) {
+        console.log(req.session.stripeSession);
         const session = await stripe.checkout.sessions.retrieve(
           req.session.stripeSession
         );
 
         if (session.status === 'complete') {
-          return next();
+          req.session.stripeSession = '';
+
+          foundItem.blackList = foundItem.blackList.filter(
+            item => !songsIds.includes(item)
+          );
+          await foundItem.save();
+
+          next();
         } else {
           res.redirect('/');
         }
