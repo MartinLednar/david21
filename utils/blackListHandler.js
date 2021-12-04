@@ -1,4 +1,5 @@
 const BlackList = require('../models/BLModel');
+const stripe = require('stripe')(process.env.STRIPE_TEST_SECRET);
 
 exports.isOnBlackList = async (req, res, next) => {
   try {
@@ -58,6 +59,72 @@ exports.addToBlackList = async (req, res, next) => {
   });
 };
 
+exports.handleBlackListOnSuccess = async (req, res, next) => {
+  const cart = req.session.cart;
+  const songsIds = cart.map(song => String(song._id));
+
+  BlackList.findOne({}, async (err, item) => {
+    if (cart.length === 0) {
+      res.redirect('/');
+    } else if (!item) {
+      BlackList.create({ blackList: [] });
+      res.redirect('/');
+    } else {
+      const allOnBlackList = songsIds.every(song =>
+        item.blackList.includes(song)
+      );
+
+      if (allOnBlackList) {
+        const session = await stripe.checkout.sessions.retrieve(
+          req.session.stripeSession
+        );
+
+        if (session.status === 'complete') {
+          return next();
+        } else {
+          res.redirect('/');
+        }
+      } else {
+        res.redirect('/');
+      }
+    }
+  });
+};
+
+exports.checkStripeSession = async (req, res, next) => {
+  try {
+    if (req?.session) {
+      if (req.session.stripeSession === '' || !req.session?.stripeSession) {
+        next();
+      } else {
+        const cart = req.session.cart;
+        const songsIds = cart.map(song => String(song._id));
+        const session = await stripe.checkout.sessions.retrieve(
+          req.session.stripeSession
+        );
+
+        req.session.stripeSession = '';
+        BlackList.findOne({}, 'blackList', async (err, foundItem) => {
+          try {
+            foundItem.blackList = foundItem.blackList.filter(
+              item => !songsIds.includes(item)
+            );
+            await foundItem.save();
+          } catch (error) {
+            res.redirect('/');
+          }
+        });
+        next();
+      }
+    } else {
+      next();
+    }
+  } catch (error) {
+    console.log(error);
+    res.redirect('/');
+  }
+};
+
 exports.removeFromBlackList = async (req, res, next) => {
   const cart = req.session.cart;
   const songsIds = cart.map(song => String(song._id));
@@ -68,7 +135,7 @@ exports.removeFromBlackList = async (req, res, next) => {
           foundItem.blackList = foundItem.blackList.filter(
             item => !songsIds.includes(item)
           );
-
+          console.log(foundItem.blackList);
           await foundItem.save();
           next();
         } catch (error) {

@@ -12,6 +12,7 @@ router
   .get(
     buyEmail.isBuyEmail,
     songsAvailable.songsAvailable,
+    blackList.checkStripeSession,
     blackList.isOnBlackList,
     blackList.addToBlackList,
     payController.createCheckoutSession

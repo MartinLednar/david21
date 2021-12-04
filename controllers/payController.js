@@ -25,6 +25,7 @@ exports.createCheckoutSession = async (req, res, next) => {
       line_items: [...itemsToCart],
     });
 
+    req.session.stripeSession = session.id;
     res.redirect(session.url);
   } catch (err) {
     console.log(err);
