@@ -12,6 +12,7 @@ router
   .get(
     emptyCart.cartIsEmpty,
     songsAvailable.songsAvailable,
+    blackList.checkStripeSession,
     blackList.removeFromBlackList,
     blackList.isOnBlackList,
     payMailController.renderSite

@@ -89,7 +89,6 @@ app.use('/pay', payRouter);
 app.use('/payment-success', paymentSuccessRouter);
 app.use('/disc-message', discMsgRouter);
 app.use('/pay-mail', payMailRouter);
-
 app.use('*', notFoundRouter);
 
 module.exports = app;
