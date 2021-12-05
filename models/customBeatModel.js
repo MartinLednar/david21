@@ -55,7 +55,6 @@ const customBeatsSchema = new mongoose.Schema({
 customBeatsSchema.pre('save', async function (next) {
   //Setting Name and Co-authors
   this.name = this.name.toLowerCase();
-  console.log(this.coAuthors);
   if (this.coAuthors[0] !== '') {
     const coAuthors = this.coAuthors[0].split(',');
 

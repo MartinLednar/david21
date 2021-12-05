@@ -26,7 +26,6 @@ exports.createCheckoutSession = async (req, res, next) => {
     req.session.stripeSession = session.id;
     res.redirect(session.url);
   } catch (err) {
-    console.log(err);
     res.redirect('/');
   }
 };

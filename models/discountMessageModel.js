@@ -9,7 +9,6 @@ const discountMessageSchema = new mongoose.Schema({
 
 discountMessageSchema.pre('save', function (next) {
   //Setting Name and Co-authors
-  console.log(this.message);
   if (this.message) {
     this.message = this.message[0].toUpperCase() + this.message.slice(1);
   }

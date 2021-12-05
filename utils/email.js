@@ -27,7 +27,6 @@ exports.sendEmailInShop = async options => {
     }
   );
   //2 Define the email options
-  console.log(options);
   const mailOptions = {
     from: process.env.CLIENT_EMAIL || process.env.CLIENT_EMAIL_PROD,
     to: options.to,

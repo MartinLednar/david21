@@ -13,8 +13,6 @@ let currSong = document.querySelector('.beat');
 let audio = currSong.querySelector('.audio');
 let clickedSong;
 
-console.log(currSong, audio);
-
 function playSong(song) {
   song.classList.add('play');
   song
@@ -91,7 +89,6 @@ playBtns.forEach(btn => {
   btn.classList.add('play-btn-loading');
   btn.addEventListener('click', function (e) {
     clickedSong = e.target.closest('.beat');
-    console.log(clickedSong);
     if (clickedSong === currSong) {
       audio = currSong.querySelector('.audio');
       if (!clickedSong.classList.contains('play')) {

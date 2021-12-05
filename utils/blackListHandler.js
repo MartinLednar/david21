@@ -75,7 +75,6 @@ exports.handleBlackListOnSuccess = async (req, res, next) => {
       );
 
       if (allOnBlackList) {
-        console.log(req.session.stripeSession);
         const session = await stripe.checkout.sessions.retrieve(
           req.session.stripeSession
         );
@@ -128,7 +127,6 @@ exports.checkStripeSession = async (req, res, next) => {
       next();
     }
   } catch (error) {
-    console.log(error);
     res.redirect('/');
   }
 };
@@ -143,7 +141,6 @@ exports.removeFromBlackList = async (req, res, next) => {
           foundItem.blackList = foundItem.blackList.filter(
             item => !songsIds.includes(item)
           );
-          console.log(foundItem.blackList);
           await foundItem.save();
           next();
         } catch (error) {
