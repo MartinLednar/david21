@@ -44,7 +44,7 @@ exports.menuJWT = async (req, res, next) => {
 exports.adminJWT = async (req, res, next) => {
   try {
     if (!req.cookies.jwt) {
-      return res.redirect('https://beatsby21/login');
+      return res.redirect('https://beatsby21.com/login');
     }
     const decoded = await promisify(jwt.verify)(
       req.cookies.jwt,

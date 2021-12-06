@@ -15,7 +15,7 @@ exports.isOnBlackList = async (req, res, next) => {
           next();
         } else {
           req.session.cart = cartFilter;
-          res.redirect('https://beatsby21/shop');
+          res.redirect('https://beatsby21.com/shop');
         }
       }
     });
@@ -94,15 +94,15 @@ exports.handleBlackListOnSuccess = async (req, res, next) => {
 
             next();
           } else {
-            res.redirect('https://beatsby21/');
+            res.redirect('https://beatsby21.com/');
           }
         } else {
-          res.redirect('https://beatsby21/');
+          res.redirect('https://beatsby21.com/');
         }
       }
     });
   } catch (error) {
-    res.redirect('https://beatsby21/');
+    res.redirect('https://beatsby21.com/');
   }
 };
 
