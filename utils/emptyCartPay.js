@@ -6,6 +6,6 @@ exports.cartIsEmpty = async (req, res, next) => {
       return next();
     }
   } catch (error) {
-    res.redirect('https://beatsby21/');
+    res.redirect('https://beatsby21.com/');
   }
 };

@@ -21,9 +21,9 @@ exports.setNewMessage = async (req, res) => {
         try {
           foundItem.message = undefined;
           await foundItem.save();
-          res.redirect('https://beatsby21/disc-message');
+          res.redirect('https://beatsby21.com/disc-message');
         } catch (error) {
-          res.redirect('https://beatsby21/login');
+          res.redirect('https://beatsby21.com/login');
         }
       });
     } else {
@@ -31,13 +31,13 @@ exports.setNewMessage = async (req, res) => {
         try {
           foundItem.message = req.body.message;
           foundItem.save();
-          res.redirect('https://beatsby21/disc-message');
+          res.redirect('https://beatsby21.com/disc-message');
         } catch (error) {
-          res.redirect('https://beatsby21/login');
+          res.redirect('https://beatsby21.com/login');
         }
       });
     }
   } catch (error) {
-    res.redirect('https://beatsby21/login');
+    res.redirect('https://beatsby21.com/login');
   }
 };

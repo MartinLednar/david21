@@ -126,7 +126,7 @@ exports.checkStripeSession = async (req, res, next) => {
             );
             await foundItem.save();
           } catch (error) {
-            return res.redirect('https://beatsby21/');
+            return res.redirect('https://beatsby21.com/');
             console.log(error);
           }
         });
@@ -136,7 +136,7 @@ exports.checkStripeSession = async (req, res, next) => {
       next();
     }
   } catch (error) {
-    res.redirect('https://beatsby21/');
+    res.redirect('https://beatsby21.com/');
     console.log(error);
   }
 };
