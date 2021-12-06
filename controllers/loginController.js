@@ -15,7 +15,7 @@ exports.renderSite = async (req, res) => {
       errMessage: undefined,
     });
   } catch (err) {
-    res.redirect('https://beatsby21.com/');
+    res.redirect('/');
   }
 };
 
@@ -23,7 +23,7 @@ exports.renderMenu = async (req, res) => {
   try {
     res.status(200).render('adminMenu');
   } catch (err) {
-    res.redirect('https://beatsby21.com/');
+    res.redirect('/');
   }
 };
 

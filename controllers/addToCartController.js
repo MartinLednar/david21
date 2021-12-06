@@ -25,7 +25,7 @@ exports.publicToCart = async (req, res) => {
       } else {
         PublicSong.findById(id, '-song', function (err, song) {
           if (err || !song) {
-            return res.redirect('https://beatsby21.com/');
+            return res.redirect('/');
           }
 
           req.session.cart.push(song);
@@ -75,6 +75,6 @@ exports.deleteFromCart = async (req, res) => {
     req.session.cart = req.session.cart.filter(el => el._id !== id);
     res.redirect(req.header('Referer'));
   } catch (err) {
-    res.redirect('https://beatsby21.com/');
+    res.redirect('/');
   }
 };

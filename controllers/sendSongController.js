@@ -25,6 +25,6 @@ exports.sendSong = async (req, res) => {
       });
     }
   } catch (err) {
-    res.redirect('https://beatsby21.com/');
+    res.redirect('/');
   }
 };

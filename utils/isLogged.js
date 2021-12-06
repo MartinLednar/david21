@@ -17,7 +17,7 @@ exports.loginJWT = async (req, res, next) => {
       return next();
     }
   } catch (err) {
-    res.redirect('https://beatsby21.com/login');
+    res.redirect('/login');
   }
 };
 
@@ -37,14 +37,14 @@ exports.menuJWT = async (req, res, next) => {
       return res.render('login');
     }
   } catch (err) {
-    res.redirect('https://beatsby21.com/login');
+    res.redirect('/login');
   }
 };
 
 exports.adminJWT = async (req, res, next) => {
   try {
     if (!req.cookies.jwt) {
-      return res.redirect('https://beatsby21.com/login');
+      return res.redirect('/login');
     }
     const decoded = await promisify(jwt.verify)(
       req.cookies.jwt,
@@ -55,6 +55,6 @@ exports.adminJWT = async (req, res, next) => {
       return next();
     }
   } catch (err) {
-    res.redirect('https://beatsby21.com/login');
+    res.redirect('/login');
   }
 };

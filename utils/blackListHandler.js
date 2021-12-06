@@ -15,7 +15,7 @@ exports.isOnBlackList = async (req, res, next) => {
           next();
         } else {
           req.session.cart = cartFilter;
-          res.redirect('https://beatsby21.com/shop');
+          res.redirect('/shop');
         }
       }
     });
@@ -94,15 +94,15 @@ exports.handleBlackListOnSuccess = async (req, res, next) => {
 
             next();
           } else {
-            res.redirect('https://beatsby21.com/');
+            res.redirect('/');
           }
         } else {
-          res.redirect('https://beatsby21.com/');
+          res.redirect('/');
         }
       }
     });
   } catch (error) {
-    res.redirect('https://beatsby21.com/');
+    res.redirect('/');
   }
 };
 
@@ -126,7 +126,7 @@ exports.checkStripeSession = async (req, res, next) => {
             );
             await foundItem.save();
           } catch (error) {
-            return res.redirect('https://beatsby21.com/');
+            return res.redirect('/');
             console.log(error);
           }
         });
@@ -136,7 +136,7 @@ exports.checkStripeSession = async (req, res, next) => {
       next();
     }
   } catch (error) {
-    res.redirect('https://beatsby21.com/');
+    res.redirect('/');
     console.log(error);
   }
 };

@@ -28,7 +28,7 @@ exports.renderSite = async (req, res) => {
       });
     });
   } catch (err) {
-    res.redirect('https://beatsby21.com/');
+    res.redirect('/');
     console.log(err);
   }
 };
@@ -49,8 +49,8 @@ exports.sendNewOrder = async (req, res) => {
       ],
     });
 
-    res.redirect('https://beatsby21.com/#contact');
+    res.redirect('/#contact');
   } catch (err) {
-    res.redirect('https://beatsby21.com/');
+    res.redirect('/');
   }
 };

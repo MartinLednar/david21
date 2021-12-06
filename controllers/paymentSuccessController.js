@@ -30,7 +30,7 @@ exports.handlePayment = async (req, res) => {
         { _id: { $in: [...publicSongs] } },
         (err, deletedSongs) => {
           if (err) {
-            return res.redirect('https://beatsby21.com/');
+            return res.redirect('/');
           }
         }
       );
@@ -53,7 +53,7 @@ exports.handlePayment = async (req, res) => {
         { _id: { $in: [...orderedSongs] } },
         (err, deletedSongs) => {
           if (err) {
-            return res.redirect('https://beatsby21.com/');
+            return res.redirect('/');
           }
         }
       );
@@ -89,7 +89,7 @@ exports.handlePayment = async (req, res) => {
         { _id: { $in: [...publicSongs] } },
         (err, deletedSongs) => {
           if (err) {
-            return res.redirect('https://beatsby21.com/');
+            return res.redirect('/');
           }
         }
       );
@@ -125,7 +125,7 @@ exports.handlePayment = async (req, res) => {
         { _id: { $in: [...orderedSongs] } },
         (err, deletedSongs) => {
           if (err) {
-            return res.redirect('https://beatsby21.com/');
+            return res.redirect('/');
           }
         }
       );
@@ -144,6 +144,6 @@ exports.handlePayment = async (req, res) => {
       return res.render('success', { buyEmail: req.session.buyEmail });
     }
   } catch (err) {
-    res.redirect('https://beatsby21.com/');
+    res.redirect('/');
   }
 };

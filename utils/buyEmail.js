@@ -3,9 +3,9 @@ exports.isBuyEmail = async (req, res, next) => {
     if (req.session?.buyEmail) {
       next();
     } else {
-      res.redirect('https://beatsby21.com/pay-mail');
+      res.redirect('/pay-mail');
     }
   } catch (err) {
-    res.redirect('https://beatsby21.com/pay-mail');
+    res.redirect('/pay-mail');
   }
 };
