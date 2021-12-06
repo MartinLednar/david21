@@ -8,5 +8,5 @@ exports.renderSite = (req, res) => {
 
 exports.setBuyEmail = (req, res) => {
   req.session.buyEmail = req.body.buyEmail;
-  res.redirect('/pay-mail');
+  res.redirect('https://beatsby21/pay-mail');
 };

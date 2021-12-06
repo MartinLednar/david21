@@ -6,7 +6,7 @@ exports.renderDeletePublic = async (req, res) => {
   try {
     if (req.params?.categ && req.params?.id) {
       publicBeat.findByIdAndDelete(req.params.id, (err, deletedSong) => {
-        res.redirect('/delete');
+        res.redirect('https://beatsby21/delete');
       });
     } else if (req.query?.search && !req.params?.categ) {
       publicBeat.find({}, '-song', (err, songs) => {
@@ -25,7 +25,7 @@ exports.renderDeletePublic = async (req, res) => {
       });
     }
   } catch (err) {
-    res.redirect('/delete');
+    res.redirect('https://beatsby21/delete');
   }
 };
 
@@ -33,7 +33,7 @@ exports.renderDeleteCustom = async (req, res) => {
   try {
     if (req.params?.categ && req.params?.id) {
       customBeat.findByIdAndDelete(req.params.id, (err, deletedSong) => {
-        res.status(200).redirect('/delete/ordered');
+        res.status(200).redirect('https://beatsby21/delete/ordered');
       });
     } else if (req.query?.search && !req.params?.categ) {
       customBeat.find({}, '-song -password', (err, songs) => {
@@ -52,6 +52,6 @@ exports.renderDeleteCustom = async (req, res) => {
       });
     }
   } catch (err) {
-    res.redirect('/delete');
+    res.redirect('https://beatsby21/delete');
   }
 };

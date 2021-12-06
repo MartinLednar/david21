@@ -10,7 +10,7 @@ exports.renderSite = async (req, res) => {
   try {
     res.status(200).render('add', { errMessage: false });
   } catch (err) {
-    res.redirect('/login');
+    res.redirect('https://beatsby21/login');
   }
 };
 

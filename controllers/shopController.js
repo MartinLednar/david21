@@ -77,6 +77,6 @@ exports.renderShopCustom = async (req, res) => {
       });
     }
   } catch (err) {
-    res.redirect('/');
+    res.redirect('https://beatsby21/');
   }
 };

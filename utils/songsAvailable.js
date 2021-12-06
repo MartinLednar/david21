@@ -46,9 +46,9 @@ exports.songsAvailable = async (req, res, next) => {
       next();
     } else {
       req.session.cart = [...availableSongs];
-      res.redirect('/');
+      res.redirect('https://beatsby21/');
     }
   } catch (error) {
-    res.redirect('/');
+    res.redirect('https://beatsby21/');
   }
 };

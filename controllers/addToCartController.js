@@ -75,6 +75,6 @@ exports.deleteFromCart = async (req, res) => {
     req.session.cart = req.session.cart.filter(el => el._id !== id);
     res.redirect(req.header('Referer'));
   } catch (err) {
-    res.redirect('/');
+    res.redirect('https://beatsby21/');
   }
 };

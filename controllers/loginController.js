@@ -23,7 +23,7 @@ exports.renderMenu = async (req, res) => {
   try {
     res.status(200).render('adminMenu');
   } catch (err) {
-    res.redirect('/');
+    res.redirect('https://beatsby21/');
   }
 };
 
