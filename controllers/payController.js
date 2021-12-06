@@ -1,4 +1,4 @@
-const stripe = require('stripe')(process.env.STRIPE_PROD_SECRET);
+const stripe = require('stripe')(process.env.STRIPE_TEST_SECRET);
 
 exports.createCheckoutSession = async (req, res, next) => {
   try {

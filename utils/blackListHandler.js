@@ -1,5 +1,5 @@
 const BlackList = require('../models/BLModel');
-const stripe = require('stripe')(process.env.STRIPE_PROD_SECRET);
+const stripe = require('stripe')(process.env.STRIPE_TEST_SECRET);
 
 exports.isOnBlackList = async (req, res, next) => {
   try {
