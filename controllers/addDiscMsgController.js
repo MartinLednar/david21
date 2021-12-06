@@ -18,15 +18,23 @@ exports.setNewMessage = async (req, res) => {
   try {
     if (req.body.noMessage) {
       discMessage.findOne({}, async (err, foundItem) => {
-        foundItem.message = undefined;
-        foundItem.save();
-        res.redirect('/disc-message');
+        try {
+          foundItem.message = undefined;
+          await foundItem.save();
+          res.redirect('/disc-message');
+        } catch (error) {
+          res.redirect('/login');
+        }
       });
     } else {
       discMessage.findOne({}, async (err, foundItem) => {
-        foundItem.message = req.body.message;
-        foundItem.save();
-        res.redirect('/disc-message');
+        try {
+          foundItem.message = req.body.message;
+          foundItem.save();
+          res.redirect('/disc-message');
+        } catch (error) {
+          res.redirect('/login');
+        }
       });
     }
   } catch (error) {

@@ -1,8 +1,5 @@
 const mongoose = require('mongoose');
 
-//password : Beats153246
-//mail: highdavidbeatz@gmail.com
-
 const adminSchema = new mongoose.Schema({
   email: {
     type: String,

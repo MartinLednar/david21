@@ -29,42 +29,34 @@ exports.renderMenu = async (req, res) => {
 
 exports.renderAdminMenu = async (req, res) => {
   try {
-    //Encrypting password and creating admin//
-    // bcrypt.genSalt(process.env.SALT_ROUNDS * 1, async function (err, salt) {
-    //   if (!err) {
-    //     bcrypt.hash(req.body.password, salt, async function (err, hash) {
-    //       if (!err) {
-    //         req.body.password = hash;
-    //         await Admin.create(req.body);
-    //       }
-    //     });
-    //   }
-    // });
-    // res.render('login', { errMessage: false });
-    //Encrypting password and creating admin//
-
     //Checking for right email and password//
     Admin.find({}, async (err, admin) => {
-      if (admin[0].email === req.body.email) {
-        bcrypt.compare(
-          req.body.password.trim(),
-          admin[0].password,
-          (err, result) => {
-            if (result) {
-              const token = signToken(admin[0]._id);
-              res.cookie('jwt', token, {
-                httpOnly: true,
-                secure: true,
-              });
-              res.render('adminMenu');
-            } else {
-              res.render('login', {
-                errMessage: true,
-              });
+      try {
+        if (admin[0].email === req.body.email) {
+          bcrypt.compare(
+            req.body.password.trim(),
+            admin[0].password,
+            (err, result) => {
+              if (result) {
+                const token = signToken(admin[0]._id);
+                res.cookie('jwt', token, {
+                  httpOnly: true,
+                  secure: true,
+                });
+                res.render('adminMenu');
+              } else {
+                res.render('login', {
+                  errMessage: true,
+                });
+              }
             }
-          }
-        );
-      } else {
+          );
+        } else {
+          res.render('login', {
+            errMessage: true,
+          });
+        }
+      } catch (error) {
         res.render('login', {
           errMessage: true,
         });

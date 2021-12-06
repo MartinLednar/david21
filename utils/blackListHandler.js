@@ -45,57 +45,65 @@ exports.isOnBlackListCart = async (req, res, next) => {
 };
 
 exports.addToBlackList = async (req, res, next) => {
-  const cart = req.session.cart;
-  const songsIds = cart.map(song => String(song._id));
-  BlackList.findOne({}, (err, item) => {
-    if (!item) {
-      BlackList.create({ blackList: songsIds });
-      next();
-    } else {
-      item.blackList.push(...songsIds);
-      item.save();
-      next();
-    }
-  });
+  try {
+    const cart = req.session.cart;
+    const songsIds = cart.map(song => String(song._id));
+    BlackList.findOne({}, (err, item) => {
+      if (!item) {
+        BlackList.create({ blackList: songsIds });
+        next();
+      } else {
+        item.blackList.push(...songsIds);
+        item.save();
+        next();
+      }
+    });
+  } catch (error) {
+    res.redirect(req.header('Referer'));
+  }
 };
 
 exports.handleBlackListOnSuccess = async (req, res, next) => {
-  const cart = req.session.cart;
-  const songsIds = cart.map(song => String(song._id));
+  try {
+    const cart = req.session.cart;
+    const songsIds = cart.map(song => String(song._id));
 
-  BlackList.findOne({}, async (err, foundItem) => {
-    if (cart.length === 0) {
-      res.redirect('/');
-    } else if (!foundItem) {
-      BlackList.create({ blackList: [] });
-      res.redirect('/');
-    } else {
-      const allOnBlackList = songsIds.every(song =>
-        foundItem.blackList.includes(song)
-      );
-
-      if (allOnBlackList) {
-        const session = await stripe.checkout.sessions.retrieve(
-          req.session.stripeSession
+    BlackList.findOne({}, async (err, foundItem) => {
+      if (cart.length === 0) {
+        res.redirect('/');
+      } else if (!foundItem) {
+        await BlackList.create({ blackList: [] });
+        res.redirect('/');
+      } else {
+        const allOnBlackList = songsIds.every(song =>
+          foundItem.blackList.includes(song)
         );
 
-        if (session.status === 'complete') {
-          req.session.stripeSession = '';
-
-          foundItem.blackList = foundItem.blackList.filter(
-            item => !songsIds.includes(item)
+        if (allOnBlackList) {
+          const session = await stripe.checkout.sessions.retrieve(
+            req.session.stripeSession
           );
-          await foundItem.save();
 
-          next();
+          if (session.status === 'complete') {
+            req.session.stripeSession = '';
+
+            foundItem.blackList = foundItem.blackList.filter(
+              item => !songsIds.includes(item)
+            );
+            await foundItem.save();
+
+            next();
+          } else {
+            res.redirect('/');
+          }
         } else {
           res.redirect('/');
         }
-      } else {
-        res.redirect('/');
       }
-    }
-  });
+    });
+  } catch (error) {
+    res.redirect('/');
+  }
 };
 
 exports.checkStripeSession = async (req, res, next) => {
@@ -118,7 +126,8 @@ exports.checkStripeSession = async (req, res, next) => {
             );
             await foundItem.save();
           } catch (error) {
-            res.redirect('/');
+            return res.redirect('/');
+            console.log(error);
           }
         });
         next();
@@ -128,13 +137,14 @@ exports.checkStripeSession = async (req, res, next) => {
     }
   } catch (error) {
     res.redirect('/');
+    console.log(error);
   }
 };
 
 exports.removeFromBlackList = async (req, res, next) => {
-  const cart = req.session.cart;
-  const songsIds = cart.map(song => String(song._id));
   try {
+    const cart = req.session.cart;
+    const songsIds = cart.map(song => String(song._id));
     if (!req.header('Referer')) {
       BlackList.findOne({}, 'blackList', async (err, foundItem) => {
         try {

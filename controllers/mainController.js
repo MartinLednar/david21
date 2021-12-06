@@ -29,6 +29,7 @@ exports.renderSite = async (req, res) => {
     });
   } catch (err) {
     res.redirect('/');
+    console.log(err);
   }
 };
 

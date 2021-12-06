@@ -5,11 +5,11 @@ const publicBeat = require('../models/publicBeatModel');
 exports.renderDeletePublic = async (req, res) => {
   try {
     if (req.params?.categ && req.params?.id) {
-      publicBeat.findByIdAndDelete(req.params.id, (err, deletedSong) => {
+      await publicBeat.findByIdAndDelete(req.params.id, (err, deletedSong) => {
         res.redirect('/delete');
       });
     } else if (req.query?.search && !req.params?.categ) {
-      publicBeat.find({}, '-song', (err, songs) => {
+      await publicBeat.find({}, '-song', (err, songs) => {
         const searched = songs.filter(song =>
           song.name.includes(req.query.search.trim().toLowerCase())
         );
@@ -20,7 +20,7 @@ exports.renderDeletePublic = async (req, res) => {
         });
       });
     } else {
-      publicBeat.find({}, '-song', (err, songs) => {
+      await publicBeat.find({}, '-song', (err, songs) => {
         res.render('delete', { foundItems: songs.reverse(), categ: 'public' });
       });
     }
