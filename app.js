@@ -23,6 +23,14 @@ const payMailRouter = require(__dirname + '/routes/payMailRoutes');
 
 const app = express();
 
+if (process.env.NODE_ENV === 'PROD') {
+  app.use((req, res, next) => {
+    if (req.header('x-forwarded-proto') !== 'https')
+      res.redirect(`https://${req.header('host')}${req.url}`);
+    else next();
+  });
+}
+
 app.set('view engine', 'ejs');
 
 app.use(express.json());
