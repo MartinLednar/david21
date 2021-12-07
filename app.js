@@ -15,6 +15,7 @@ const notFoundRouter = require(__dirname + '/routes/notFoundRoutes');
 const addToCartRouter = require(__dirname + '/routes/addToCartRoutes');
 const payRouter = require(__dirname + '/routes/payRoutes');
 const discMsgRouter = require(__dirname + '/routes/addDiscMsgRoutes');
+const rulesRouter = require(__dirname + '/routes/rulesRoutes');
 
 const paymentSuccessRouter = require(__dirname +
   '/routes/paymentSuccessRoutes');
@@ -60,6 +61,7 @@ app.use('/pay', payRouter);
 app.use('/payment-success', paymentSuccessRouter);
 app.use('/disc-message', discMsgRouter);
 app.use('/pay-mail', payMailRouter);
+app.use('/terms-and-policy', rulesRouter);
 app.use('*', notFoundRouter);
 
 module.exports = app;

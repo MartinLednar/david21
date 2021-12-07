@@ -2,18 +2,28 @@ const nodemailer = require('nodemailer');
 const ejs = require('ejs');
 
 //1 Create transporter
+// const transporter = nodemailer.createTransport({
+//   host: 'smtp.gmail.com',
+//   port: 465,
+//   secure: true,
+//   auth: {
+//     type: 'OAuth2',
+//     user: process.env.CLIENT_EMAIL_PROD || process.env.CLIENT_EMAIL,
+//     clientId: process.env.CLIENT_ID_PROD || process.env.CLIENT_ID,
+//     clientSecret: process.env.CLIENT_SECRET_PROD || process.env.CLIENT_SECRET,
+//     refreshToken: process.env.REFRESH_TOKEN_PROD || process.env.REFRESH_TOKEN,
+//     accessToken: process.env.ACCESS_TOKEN_PROD || process.env.ACCESS_TOKEN,
+//     expires: 1484314697598,
+//   },
+// });
+
 const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
   port: 465,
   secure: true,
   auth: {
-    type: 'OAuth2',
     user: process.env.CLIENT_EMAIL_PROD || process.env.CLIENT_EMAIL,
-    clientId: process.env.CLIENT_ID_PROD || process.env.CLIENT_ID,
-    clientSecret: process.env.CLIENT_SECRET_PROD || process.env.CLIENT_SECRET,
-    refreshToken: process.env.REFRESH_TOKEN_PROD || process.env.REFRESH_TOKEN,
-    accessToken: process.env.ACCESS_TOKEN_PROD || process.env.ACCESS_TOKEN,
-    expires: 1484314697598,
+    pass: process.env.EMAIL_PASSWORD_PROD || process.env.EMAIL_PASSWORD,
   },
 });
 
