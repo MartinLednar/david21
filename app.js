@@ -60,7 +60,7 @@ app.use(express.static('public'));
 
 app.get('/sitemap.xml', function (req, res) {
   res.header('Content-Type', 'application/xml');
-  res.sendFile('./sitemap.xml');
+  res.sendFile(__dirname + '/sitemap.xml');
 });
 
 app.use('/', mainRouter);
