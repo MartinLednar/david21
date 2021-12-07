@@ -50,6 +50,7 @@ app.use(
       },
     }),
     cookie: {
+      httpOnly: true,
       secure: true,
     },
     secret: process.env.SESSION_SECRET,
