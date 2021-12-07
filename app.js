@@ -58,6 +58,10 @@ app.use(
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
+app.get('/sitemap.xml', function (req, res) {
+  res.sendFile('./sitemap.xml');
+});
+
 app.use('/', mainRouter);
 app.use('/login', loginRouter);
 app.use('/add', addSongRouter);
