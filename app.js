@@ -38,6 +38,10 @@ app.use(cookieParser());
 
 app.use(
   session({
+    cookie: {
+      secure: true,
+      sameSite: 'strict',
+    },
     store: MongoStore.create({
       mongoUrl: process.env?.NODE_ENV
         ? process.env.DATABASE
@@ -49,10 +53,6 @@ app.use(
         secret: process.env.SESSION_CRYPTO_SECRET,
       },
     }),
-    cookie: {
-      httpOnly: true,
-      secure: true,
-    },
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
