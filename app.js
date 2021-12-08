@@ -49,9 +49,6 @@ app.use(
         secret: process.env.SESSION_CRYPTO_SECRET,
       },
     }),
-    cookie: {
-      sameSite: 'none',
-    },
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
