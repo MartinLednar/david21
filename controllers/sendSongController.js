@@ -12,7 +12,7 @@ exports.sendSong = async (req, res) => {
           'Content-Length': song.song.file.length,
           'Accept-Ranges': 'bytes',
         });
-        res.end(song.song.file);
+        res.sendFile(song.song.file);
       });
     } else {
       customBeat.findById(id, 'song', (err, song) => {
@@ -21,7 +21,7 @@ exports.sendSong = async (req, res) => {
           'Content-Length': song.song.file.length,
           'Accept-Ranges': 'bytes',
         });
-        res.end(song.song.file);
+        res.sendFile(song.song.file);
       });
     }
   } catch (err) {
