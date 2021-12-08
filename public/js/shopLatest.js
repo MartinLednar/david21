@@ -22,5 +22,9 @@ latestBtn.addEventListener('click', function () {
     latest.classList.remove('btn-hidden');
     songsBox.style.flexDirection = 'column';
     beat.style.marginBottom = '2rem';
+    beat.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
   }
 });
