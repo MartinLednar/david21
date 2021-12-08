@@ -24,7 +24,7 @@ latestBtn.addEventListener('click', function () {
     beat.style.marginBottom = '2rem';
     beat.scrollIntoView({
       behavior: 'smooth',
-      block: 'start',
+      block: 'end',
     });
   }
 });
