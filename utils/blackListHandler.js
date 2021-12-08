@@ -33,6 +33,7 @@ exports.isOnBlackListCart = async (req, res, next) => {
     const id = req.params.id;
     BlackList.findOne({}, 'blackList', (err, foundItem) => {
       if (!foundItem) {
+        console.log('somss tu');
         next();
       } else {
         const itemInBlackList = foundItem.blackList.includes(id);
@@ -129,19 +130,17 @@ exports.checkStripeSession = async (req, res, next) => {
               item => !songsIds.includes(item)
             );
             await foundItem.save();
+            next();
           } catch (error) {
-            return res.redirect('/');
-            console.log(error);
+            res.redirect('/');
           }
         });
-        next();
       }
     } else {
       next();
     }
   } catch (error) {
     res.redirect('/');
-    console.log(error);
   }
 };
 
