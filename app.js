@@ -51,7 +51,6 @@ app.use(
     }),
     cookie: {
       secure: true,
-      maxAge: 86400,
       sameSite: 'none',
     },
     secret: process.env.SESSION_SECRET,
