@@ -9,7 +9,6 @@ if (process.env?.NODE_ENV) {
     .connect(process.env.DATABASE, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      minPoolSize: 100,
     })
     .then(() => {
       console.log('DB Atlas connection successful');
@@ -19,7 +18,6 @@ if (process.env?.NODE_ENV) {
     .connect(process.env.DATABASE_LOCAL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      minPoolSize: 100,
     })
     .then(() => {
       console.log('DB connection successful');
