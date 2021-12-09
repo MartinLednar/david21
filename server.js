@@ -24,6 +24,7 @@ if (process.env?.NODE_ENV) {
     });
 }
 
+// console.log(db.collections);
 const server = app.listen(process.env.PORT || 5000, () => {
   console.log(`Server running on port ${process.env.PORT || 5000}...`);
 });
