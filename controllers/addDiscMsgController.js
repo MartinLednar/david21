@@ -19,9 +19,14 @@ exports.setNewMessage = async (req, res) => {
     if (req.body.noMessage) {
       discMessage.findOne({}, async (err, foundItem) => {
         try {
-          foundItem.message = undefined;
-          await foundItem.save();
-          res.redirect('/disc-message');
+          if (!foundItem) {
+            await discMessage.create({ message: '' });
+            res.redirect('/disc-message');
+          } else {
+            foundItem.message = undefined;
+            await foundItem.save();
+            res.redirect('/disc-message');
+          }
         } catch (error) {
           res.redirect('/login');
         }

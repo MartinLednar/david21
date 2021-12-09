@@ -29,7 +29,21 @@ exports.renderMenu = async (req, res) => {
 
 exports.renderAdminMenu = async (req, res) => {
   try {
-    //Checking for right email and password//
+    //Encrypting password and creating admin//
+    // bcrypt.genSalt(process.env.SALT_ROUNDS * 1, async function (err, salt) {
+    //   if (!err) {
+    //     bcrypt.hash(req.body.password, salt, async function (err, hash) {
+    //       if (!err) {
+    //         req.body.password = hash;
+    //         await Admin.create(req.body);
+    //       }
+    //     });
+    //   }
+    // });
+    // res.render('login', { errMessage: false });
+
+    //Encrypting password and creating admin//
+    // Checking for right email and password//
     Admin.find({}, async (err, admin) => {
       try {
         if (admin[0].email === req.body.email) {
