@@ -20,7 +20,7 @@ const ejs = require('ejs');
 const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
   port: 465,
-  secure: true,
+  secure: false,
   auth: {
     user: process.env.CLIENT_EMAIL_PROD || process.env.CLIENT_EMAIL,
     pass: process.env.EMAIL_PASSWORD_PROD || process.env.EMAIL_PASSWORD,
