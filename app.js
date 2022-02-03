@@ -39,11 +39,9 @@ app.use(cookieParser());
 app.use(
   session({
     store: MongoStore.create({
-      mongoUrl: process.env?.NODE_ENV
-        ? process.env.DATABASE
-        : process.env.DATABASE_LOCAL,
+      mongoUrl: process.env.DATABASE_MATURITA,
       ttl: 14 * 24 * 60 * 60, // =  expiration
-      autoRemove: 'disabled',
+      autoRemove: 'interval',
       autoRemoveInterval: 15,
       crypto: {
         secret: process.env.SESSION_CRYPTO_SECRET,

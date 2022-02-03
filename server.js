@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
-dotenv.config({ path: './.env' });
+dotenv.config({ path: __dirname + '/.env' });
 const app = require(__dirname + '/app');
 
 if (process.env?.NODE_ENV) {
   mongoose
-    .connect(process.env.DATABASE, {
+    .connect(process.env.DATABASE_MATURITA, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })
