@@ -46,6 +46,7 @@ exports.renderAdminMenu = async (req, res) => {
     // Checking for right email and password//
     Admin.find({}, async (err, admin) => {
       try {
+        console.log(admin);
         if(!admin){
            bcrypt.genSalt(process.env.SALT_ROUNDS * 1, async function (err, salt) {
                     if (!err) {
