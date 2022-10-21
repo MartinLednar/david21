@@ -14,6 +14,7 @@ if (process.env?.NODE_ENV) {
       console.log('DB Atlas connection successful');
     });
 } else {
+  console.log("SOM TU BREKEKE");
   mongoose
     .connect(process.env.DATABASE_LOCAL, {
       useNewUrlParser: true,
