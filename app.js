@@ -54,7 +54,7 @@ app.use(
 );
 
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
 
 app.get('/sitemap.xml', function (req, res) {
   res.header('Content-Type', 'application/xml');

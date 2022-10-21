@@ -9,15 +9,15 @@
       name="keywords"
       content="beats, beats shop, beats store, beatsby21, beatsby21 shop, beatsby21 store, david21, david21 store"
     />
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="shortcut icon" href="/img/logo21SVG.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="img/logo21SVG.svg" type="image/x-icon" />
     <title>David21 | Official Shop</title>
   </head>
 <body>
     <div class="beats-container">
       <header>
         <a href="/" class="logo-container">
-          <img src="/img/logo21-bg.png" class="logo" alt="Logo" />
+          <img src="img/logo21-bg.png" class="logo" alt="Logo" />
         </a>
         <nav>
           <ul>
@@ -38,7 +38,7 @@
         <div class="cart">
           <button class="cart-btn">
             <svg class="feather cart-icon">
-              <use xlink:href="/img/feather-sprite.svg#shopping-bag" />
+              <use xlink:href="img/feather-sprite.svg#shopping-bag" />
             </svg>
 
             <span><%=cartItems.length%></span>
@@ -80,7 +80,7 @@
                     />
                     <button class="search-btn" type="submit">
                       <svg class="feather search-icon">
-                        <use xlink:href="/img/feather-sprite.svg#search" />
+                        <use xlink:href="img/feather-sprite.svg#search" />
                       </svg>
                     </button>
                   </form> 
@@ -98,7 +98,7 @@
                     />
                     <button class="search-btn" type="submit">
                       <svg class="feather search-icon">
-                        <use xlink:href="/img/feather-sprite.svg#search" />
+                        <use xlink:href="img/feather-sprite.svg#search" />
                       </svg>
                     </button>
                   </form>
@@ -114,7 +114,7 @@
                     Oldest
                   </span>
                   <svg class="feather latest-icon">
-                    <use xlink:href="/img/feather-sprite.svg#chevron-down" />
+                    <use xlink:href="img/feather-sprite.svg#chevron-down" />
                   </svg>
                 </button>
               </div>
@@ -131,7 +131,7 @@
                 <div class="beat">
                   <div class="play-btn">
                     <svg class="feather play-icon">
-                      <use xlink:href="/img/feather-sprite.svg#play" />
+                      <use xlink:href="img/feather-sprite.svg#play" />
                     </svg>
                   </div>
     
@@ -174,7 +174,7 @@
                 <div class="beat" data-id = "<%=song._id%>">
                   <div class="play-btn">
                     <svg class="feather play-icon">
-                      <use xlink:href="/img/feather-sprite.svg#play" />
+                      <use xlink:href="img/feather-sprite.svg#play" />
                     </svg>
                   </div>
     
@@ -213,7 +213,7 @@
                 <form action="/cart/ordered" method="POST" class="ordered-form">
                   <div class="ordered-x">
                     <span><svg class="feather shop-x-icon">
-                      <use xlink:href="/img/feather-sprite.svg#x" /></svg
+                      <use xlink:href="img/feather-sprite.svg#x" /></svg
                   ></span>
                   </div>
                   <h2>Use password from your mail to add to cart</h2>
@@ -239,7 +239,7 @@
   <%- include("./partials/mobNav") -%>
 
   <%if(categ === 'ordered'){%>
-    <script src="/js/orderedForm.js"></script>
+    <script src="js/orderedForm.js"></script>
   <%}%>
 
   <script src="/js/index.js"></script>
