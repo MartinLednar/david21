@@ -38,7 +38,7 @@ app.use(cookieParser());
 
 app.use(
   session({
-    store: MongoStore.create({
+    store: new MongoStore.create({
       mongoUrl: process.env?.NODE_ENV
         ? process.env.DATABASE
         : process.env.DATABASE_LOCAL,
