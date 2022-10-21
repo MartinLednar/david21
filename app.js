@@ -1,7 +1,7 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
-const MongoStore = require('connect-mongo');
+const MongoStore = require('connect-mongo').default;
 const ejs = require('ejs');
 const mongoose = require('mongoose');
 
@@ -38,7 +38,7 @@ app.use(cookieParser());
 
 app.use(
   session({
-    store: new MongoStore.create({
+    store: MongoStore.create({
       mongoUrl: process.env?.NODE_ENV
         ? process.env.DATABASE
         : process.env.DATABASE_LOCAL,
